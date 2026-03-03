@@ -17,13 +17,12 @@ export default function FeaturedDriversSection({ drivers = featuredDrivers }: Pr
           <span className="block text-brand-red">COMPETITIVA</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {drivers.map(driver => (
             <Link
               key={driver.slug}
               href={`/pilotos/${driver.slug}`}
-              className="group relative block overflow-hidden shadow-md"
-              style={{ minHeight: 370 }}
+              className="group relative block overflow-hidden shadow-md min-h-96"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -47,7 +46,7 @@ export default function FeaturedDriversSection({ drivers = featuredDrivers }: Pr
         </div>
 
         <div className="mt-12 flex justify-center">
-          <Link href="/pilotos" className="px-10 py-3 bg-black text-white font-bold text-lg rounded-none shadow-none hover:bg-brand-red transition-all" style={{ fontFamily: "inherit" }}>
+          <Link href="/pilotos" className="px-10 py-3 bg-black text-white font-bold text-base sm:text-lg rounded-none shadow-none hover:bg-brand-red transition-all w-full sm:w-auto text-center" style={{ fontFamily: "inherit" }}>
             VER TODOS LOS PILOTOS
           </Link>
         </div>

@@ -55,9 +55,9 @@ export default function EstructuraPage() {
             {INSTITUTION_STATS.map((stat, i) => (
               <div
                 key={i}
-                className={`py-10 px-8 flex flex-col gap-2 border-brand-gray-border ${i > 0 ? "border-l" : ""}`}
+                className={`py-6 px-4 sm:py-10 sm:px-8 flex flex-col gap-2 border-brand-gray-border ${i > 0 ? "border-l" : ""}`}
               >
-                <div className="font-display font-black text-5xl text-brand-black">{stat.value}</div>
+                <div className="font-display font-black text-3xl sm:text-5xl text-brand-black">{stat.value}</div>
                 <div className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light">{stat.label}</div>
               </div>
             ))}

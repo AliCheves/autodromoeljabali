@@ -11,8 +11,7 @@ export function KartingChampionsSection() {
       <div className="container-xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div className="flex justify-center">
           <div
-            className="relative w-full max-w-md md:max-w-lg overflow-hidden shadow-lg"
-            style={{ aspectRatio: "1.1/1", border: "8px solid #fff" }}
+            className="relative w-full max-w-md md:max-w-lg overflow-hidden shadow-lg aspect-[11/10] border-8 border-white"
           >
             <Image
               src="/images/placeholders/placeholder.svg"
@@ -63,7 +62,7 @@ export function KartingChampionsSection() {
               </div>
             </li>
           </ul>
-          <Link href="/institucion/escuelas" className="mt-2 px-8 py-3 bg-brand-red text-white font-bold text-lg rounded-none shadow-none hover:bg-brand-red/80 transition-all flex items-center gap-2" style={{ fontFamily: "inherit" }}>
+          <Link href="/institucion/escuelas" className="mt-2 px-8 py-3 bg-brand-red text-white font-bold text-base sm:text-lg rounded-none shadow-none hover:bg-brand-red/80 transition-all inline-flex items-center gap-2 w-full sm:w-auto justify-center sm:justify-start" style={{ fontFamily: "inherit" }}>
             JOIN KARTING PROGRAM
             <svg width="24" height="24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M13 5l7 7-7 7" /></svg>
           </Link>

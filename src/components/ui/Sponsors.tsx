@@ -76,11 +76,11 @@ export function SponsorGrid({
         <p className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light mb-4">
           Patrocinadores Principales
         </p>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {mainSponsors.map((s) => (
             <div
               key={s}
-              className="border border-brand-gray-border flex items-center justify-center py-6 px-8 hover:border-brand-red transition-colors duration-200"
+              className="border border-brand-gray-border flex items-center justify-center py-4 px-4 sm:py-6 sm:px-8 hover:border-brand-red transition-colors duration-200"
             >
               <span className="font-display font-bold text-lg uppercase tracking-widest text-brand-gray hover:text-brand-red transition-colors">
                 {s}

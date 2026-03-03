@@ -13,7 +13,7 @@ export function InstitutionSection() {
             {/* Left: text */}
             <div>
               <h1
-                className="font-black text-[64px] leading-none mb-2 text-brand-black"
+                className="font-black text-5xl sm:text-6xl lg:text-7xl leading-none mb-2 text-brand-black"
                 style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
               >
                 LEGADO
@@ -33,24 +33,24 @@ export function InstitutionSection() {
             </div>
 
             {/* Right: stats grid */}
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
               {/* Primer stat */}
-              <div className="bg-black text-white p-10 flex flex-col items-center justify-center" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
+              <div className="bg-black text-white p-6 sm:p-10 flex flex-col items-center justify-center" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
                 <span className="font-black text-5xl text-brand-red mb-2" style={{ fontFamily: "inherit" }}>25+</span>
                 <span className="text-base mt-2" style={{ fontFamily: "inherit" }}>AÑOS DE EXPERIENCIA</span>
               </div>
               {/* Segundo stat */}
-              <div className="bg-brand-red text-white p-10 flex flex-col items-center justify-center" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
+              <div className="bg-brand-red text-white p-6 sm:p-10 flex flex-col items-center justify-center" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
                 <span className="font-black text-5xl mb-2" style={{ fontFamily: "inherit" }}>150+</span>
                 <span className="text-base mt-2" style={{ fontFamily: "inherit" }}>PILOTOS PROFESIONALES</span>
               </div>
               {/* Tercer stat */}
-              <div className="bg-brand-red text-white p-10 flex flex-col items-center justify-center" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
+              <div className="bg-brand-red text-white p-6 sm:p-10 flex flex-col items-center justify-center" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
                 <span className="font-black text-5xl mb-2" style={{ fontFamily: "inherit" }}>12</span>
                 <span className="text-base mt-2" style={{ fontFamily: "inherit" }}>CIRCUITOS DE COMPETICIÓN</span>
               </div>
               {/* Cuarto stat */}
-              <div className="bg-black text-white p-10 flex flex-col items-center justify-center" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
+              <div className="bg-black text-white p-6 sm:p-10 flex flex-col items-center justify-center" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
                 <span className="font-black text-5xl text-brand-red mb-2" style={{ fontFamily: "inherit" }}>500+</span>
                 <span className="text-base mt-2" style={{ fontFamily: "inherit" }}>EVENTOS ANUALES</span>
               </div>
