@@ -4,7 +4,7 @@
 // In Phase 3, these will be replaced with Supabase queries.
 // ============================================================
 
-export { DRIVERS, getDriverBySlug } from "@/config/content/pilotos";
+export { PILOTS, getPilotBySlug, FEATURED_PILOT_SLUGS } from "@/config/content/pilotos";
 export { KARTING_CLASSES, RACE_EVENTS, STANDINGS } from "@/config/content/karting";
 export { INSTITUTION_STATS, HOME_CALENDAR } from "@/config/content/home";
 

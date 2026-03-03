@@ -269,6 +269,34 @@ export interface DriverProfile {
 // Home / general
 // ------------------------------------
 
+export type PilotDiscipline =
+    | "Karting"
+    | "Circuito"
+    | "Aceleración"
+    | "Motorsport"
+    | "SimRacing"
+    | "Tuning"
+    | "Otros";
+
+export interface PilotStatItem {
+    label: string;
+    value: string;
+}
+
+export interface PilotProfileContent {
+    meta: PageMeta;
+    slug: string;
+    name: string;
+    firstName: string;
+    lastName: string;
+    disciplines: PilotDiscipline[];
+    highlights: string[];
+    bio: string[];
+    stats: PilotStatItem[];
+    image: string;
+    actionImage?: string;
+}
+
 export interface StatItem {
     value: string;
     label: string;
