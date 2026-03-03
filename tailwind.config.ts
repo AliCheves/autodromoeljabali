@@ -49,6 +49,12 @@ const config: Config = {
         "widest-xl": "0.2em",
         "widest-2xl": "0.3em",
       },
+      backgroundImage: {
+        "hero-grid": "repeating-linear-gradient(0deg, #fff 0, #fff 1px, transparent 0, transparent 50%), repeating-linear-gradient(90deg, #fff 0, #fff 1px, transparent 0, transparent 50%)",
+      },
+      backgroundSize: {
+        "grid-80": "80px 80px",
+      },
       borderWidth: {
         "3": "3px",
       },

@@ -14,6 +14,7 @@ export interface HeroContent {
     titleAccent: string;
     description: string;
     image?: string;
+    watermark?: string;
 }
 
 export interface ContentSection {

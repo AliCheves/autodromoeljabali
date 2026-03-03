@@ -1,6 +1,12 @@
-import type { StatItem, CalendarEvent } from "@/types/content";
+import type { HeroContent, StatItem, CalendarEvent } from "@/types/content";
 
-const PLACEHOLDER = "/images/placeholders/placeholder.svg";
+export const HOME_HERO: HeroContent = {
+    label: "TEMPORADA DE CAMPEONATO 2026",
+    title: "SUPERANDO LOS",
+    titleAccent: "LÍMITES",
+    description: "Experimente el pináculo del automovilismo en Autódromo Internacional El Jabalí. Donde la precisión se encuentra con la pasión en la pista.",
+    image: "/images/hero/jabali-noche.jpeg",
+};
 
 export const INSTITUTION_STATS: StatItem[] = [
     { value: "45+", label: "Años de Experiencia" },
@@ -15,7 +21,3 @@ export const HOME_CALENDAR: CalendarEvent[] = [
     { day: "22", month: "JUN", label: "RONDA", name: "Desafío de Resistencia 6H", circuit: "Circuito Principal", time: "12:00 PM" },
     { day: "10", month: "MAY", label: "ACADEMIA", name: "Exhibición Academia de Pilotos", circuit: "Centro de Entrenamiento", time: "10:00 PM" },
 ];
-
-export const HOME_HERO = {
-    image: PLACEHOLDER,
-};
