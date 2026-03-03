@@ -1,8 +1,16 @@
-import { Section, SectionHeader } from "@/components/ui/Section";
+import Link from "next/link";
+import { Section } from "@/components/ui/Section";
 import { INSTITUTION_STATS } from "@/data";
 import { OrganizationalStructureSection } from "./OrganizationalStructureSection";
 import { KartingChampionsSection } from "./KartingChampionsSection";
 import { RaceCalendarSection } from "./RaceCalendarSection";
+
+const STAT_COLORS = [
+  { bg: "bg-black", text: "text-brand-red" },
+  { bg: "bg-brand-red", text: "text-white" },
+  { bg: "bg-brand-red", text: "text-white" },
+  { bg: "bg-black", text: "text-brand-red" },
+];
 
 export function InstitutionSection() {
   return (
@@ -10,7 +18,6 @@ export function InstitutionSection() {
       <Section id="institucion">
         <div className="container-xl py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            {/* Left: text */}
             <div>
               <h1
                 className="font-black text-5xl sm:text-6xl lg:text-7xl leading-none mb-2 text-brand-black"
@@ -30,30 +37,33 @@ export function InstitutionSection() {
                   Con programas de formación de última generación, estándares de seguridad líderes en la industria y una pasión por el automovilismo que está profundamente arraigada en nuestro ADN, continuamos superando límites y redefiniendo lo que es posible en la pista.
                 </p>
               </div>
+              <Link
+                href="/institucion/legado-competitivo"
+                className="inline-flex items-center gap-2 mt-8 px-8 py-3 bg-brand-red text-white font-bold text-base sm:text-lg hover:bg-brand-red/80 transition-all"
+                style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+              >
+                DESCUBRE NUESTRA HISTORIA →
+              </Link>
             </div>
 
-            {/* Right: stats grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
-              {/* Primer stat */}
-              <div className="bg-black text-white p-6 sm:p-10 flex flex-col items-center justify-center" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
-                <span className="font-black text-5xl text-brand-red mb-2" style={{ fontFamily: "inherit" }}>25+</span>
-                <span className="text-base mt-2" style={{ fontFamily: "inherit" }}>AÑOS DE EXPERIENCIA</span>
-              </div>
-              {/* Segundo stat */}
-              <div className="bg-brand-red text-white p-6 sm:p-10 flex flex-col items-center justify-center" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
-                <span className="font-black text-5xl mb-2" style={{ fontFamily: "inherit" }}>150+</span>
-                <span className="text-base mt-2" style={{ fontFamily: "inherit" }}>PILOTOS PROFESIONALES</span>
-              </div>
-              {/* Tercer stat */}
-              <div className="bg-brand-red text-white p-6 sm:p-10 flex flex-col items-center justify-center" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
-                <span className="font-black text-5xl mb-2" style={{ fontFamily: "inherit" }}>12</span>
-                <span className="text-base mt-2" style={{ fontFamily: "inherit" }}>CIRCUITOS DE COMPETICIÓN</span>
-              </div>
-              {/* Cuarto stat */}
-              <div className="bg-black text-white p-6 sm:p-10 flex flex-col items-center justify-center" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
-                <span className="font-black text-5xl text-brand-red mb-2" style={{ fontFamily: "inherit" }}>500+</span>
-                <span className="text-base mt-2" style={{ fontFamily: "inherit" }}>EVENTOS ANUALES</span>
-              </div>
+              {INSTITUTION_STATS.map((stat, i) => {
+                const colors = STAT_COLORS[i % STAT_COLORS.length];
+                return (
+                  <div
+                    key={i}
+                    className={`${colors.bg} text-white p-6 sm:p-10 flex flex-col items-center justify-center`}
+                    style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+                  >
+                    <span className={`font-black text-5xl ${colors.text} mb-2`} style={{ fontFamily: "inherit" }}>
+                      {stat.value}
+                    </span>
+                    <span className="text-base mt-2 text-center uppercase" style={{ fontFamily: "inherit" }}>
+                      {stat.label}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -64,3 +74,4 @@ export function InstitutionSection() {
     </>
   );
 }
+

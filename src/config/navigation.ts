@@ -6,6 +6,7 @@ export const navigation: NavLink[] = [
     label: "Institución",
     href: "/institucion",
     children: [
+      { label: "Legado Competitivo", href: "/institucion/legado-competitivo" },
       { label: "Voluntariado", href: "/institucion/voluntariado" },
       { label: "Escuelas", href: "/institucion/escuelas" },
       { label: "Logros", href: "/institucion/logros" },

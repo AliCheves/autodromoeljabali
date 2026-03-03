@@ -274,6 +274,23 @@ export interface StatItem {
     label: string;
 }
 
+export interface NarrativeSection {
+    title: string;
+    paragraphs: string[];
+}
+
+export interface GalleryImage {
+    src: string;
+    alt: string;
+}
+
+export interface LegadoCompetitivoContent {
+    meta: PageMeta;
+    hero: HeroContent;
+    sections: NarrativeSection[];
+    gallery: GalleryImage[];
+}
+
 export interface CalendarEvent {
     day: string;
     month: string;
