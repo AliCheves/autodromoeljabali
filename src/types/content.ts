@@ -90,6 +90,103 @@ export interface NochesContent {
 }
 
 // ------------------------------------
+// Structured event types (Phase 3)
+// ------------------------------------
+
+export interface EventDate {
+    day: string;
+    month: string;
+    year?: number;
+    sponsor?: string;
+}
+
+export interface EventPrize {
+    place: string;
+    amount: string;
+}
+
+export interface EventScheduleSlot {
+    day: string;
+    startTime: string;
+    endTime: string;
+}
+
+export interface RegistrationInfo {
+    totalSlots: number;
+    requirements: string[];
+    contactPhones: string[];
+    engineNote?: string;
+}
+
+export interface PressConference {
+    venue: string;
+    date: string;
+    time: string;
+}
+
+export interface EventDayCalendar {
+    day: string;
+    timeRange: string;
+    dates: EventDate[];
+}
+
+export interface ChampionshipContent {
+    meta: PageMeta;
+    hero: HeroContent;
+    organizer: string;
+    rounds: EventDate[];
+    prizes: EventPrize[];
+    description: string;
+    ctaLabel: string;
+    ctaHref: string;
+    registration?: RegistrationInfo;
+    pressConference?: PressConference;
+    sponsors?: string[];
+}
+
+export interface CalendarSeasonContent {
+    meta: PageMeta;
+    hero: HeroContent;
+    season: number;
+    rounds: EventDate[];
+    description: string;
+    ctaLabel: string;
+    ctaHref: string;
+    sponsors?: string[];
+    disclaimer?: string;
+}
+
+export interface RentalExperienceContent {
+    meta: PageMeta;
+    hero: HeroContent;
+    schedule: EventScheduleSlot[];
+    pricing: PricingTier[];
+    description: string;
+    highlights: string[];
+    ctaLabel: string;
+    ctaHref: string;
+    calendars?: EventDayCalendar[];
+    poweredBy?: string;
+    sponsors?: string[];
+}
+
+// ------------------------------------
+// Leadership / structure domain
+// ------------------------------------
+
+export interface LeadershipMember {
+    name: string;
+    role: string;
+    image?: string;
+}
+
+export interface LeadershipSectionContent {
+    meta: PageMeta;
+    hero: HeroContent;
+    members: LeadershipMember[];
+}
+
+// ------------------------------------
 // Karting domain
 // ------------------------------------
 
