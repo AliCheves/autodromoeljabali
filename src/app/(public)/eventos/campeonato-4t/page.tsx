@@ -5,6 +5,7 @@ import { EventHero } from "@/components/sections/EventHero";
 import { EventCalendarGrid } from "@/components/sections/EventCalendarGrid";
 import { EventPrizeSection } from "@/components/sections/EventPrizeSection";
 import { EventRegistrationSection } from "@/components/sections/EventRegistrationSection";
+import { EventDocumentCTA } from "@/components/sections/EventDocumentCTA";
 import { Section } from "@/components/ui/Section";
 
 export function generateMetadata(): Metadata {
@@ -69,6 +70,14 @@ export default function Campeonato4TPage() {
                     pressConference={content.pressConference}
                     sponsors={content.sponsors}
                 />
+            )}
+
+            {content.document && (
+                <Section gray>
+                    <div className="container-xl">
+                        <EventDocumentCTA document={content.document} />
+                    </div>
+                </Section>
             )}
 
             <Section>

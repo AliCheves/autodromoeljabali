@@ -130,6 +130,12 @@ export interface EventDayCalendar {
     dates: EventDate[];
 }
 
+export interface EventDocument {
+    label: string;
+    fileName: string;
+    filePath: string;
+}
+
 export interface ChampionshipContent {
     meta: PageMeta;
     hero: HeroContent;
@@ -142,6 +148,7 @@ export interface ChampionshipContent {
     registration?: RegistrationInfo;
     pressConference?: PressConference;
     sponsors?: string[];
+    document?: EventDocument;
 }
 
 export interface CalendarSeasonContent {

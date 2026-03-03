@@ -57,4 +57,9 @@ export const CAMPEONATO_4T: ChampionshipContent = {
         "Direct English",
         "Todo Motor",
     ],
+    document: {
+        label: "Descargar Reglamento Oficial 2026",
+        fileName: "Reglamento Campeonato 4T 2026",
+        filePath: "/docs/reglamentos/reglamento-campeonato-4t-2026.pdf",
+    },
 };

@@ -24,7 +24,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Categoría actual", value: "4T ACES" },
             { label: "Equipo", value: "N/A" },
         ],
-        image: PLACEHOLDER,
+        image: "/images/pilotos/MauricioSermeno/portrait/MauricioSermeno.jpeg",
     },
     {
         meta: {
@@ -49,7 +49,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Categoría actual", value: "4T ACES" },
             { label: "Equipo", value: "Parker Racing Team (PRT)" },
         ],
-        image: PLACEHOLDER,
+        image: "/images/pilotos/EduardoParker/portrait/EduardoParker.jpeg",
     },
     {
         meta: {
@@ -72,7 +72,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Debut oficial", value: "Pendiente" },
             { label: "Categoría actual", value: "N/A" },
         ],
-        image: PLACEHOLDER,
+        image: "/images/pilotos/RobertoAlonsoTurcios/portrait/RobertoAlonsoTurcios.jpeg",
     },
     {
         meta: {
@@ -96,7 +96,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Podios", value: "22+" },
             { label: "Rol", value: "Voluntario ACES" },
         ],
-        image: PLACEHOLDER,
+        image: "/images/pilotos/JoseFlores/portrait/JoseFlores.jpeg",
     },
     {
         meta: {
@@ -120,7 +120,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Categoría actual", value: "4T ACES" },
             { label: "Año foco", value: "2026" },
         ],
-        image: PLACEHOLDER,
+        image: "/images/pilotos/RobertoMendoza/portrait/RobertoMendoza.jpeg",
     },
     {
         meta: {
@@ -143,7 +143,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Categoría karting", value: "4T ACES" },
             { label: "Campeonatos", value: "N/A" },
         ],
-        image: PLACEHOLDER,
+        image: "/images/pilotos/CesarRivas/portrait/CesarRivas.jpeg",
     },
     {
         meta: {
@@ -165,7 +165,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Rol", value: "Director General TODO MOTOR" },
             { label: "Categoría actual", value: "4T ACES" },
         ],
-        image: PLACEHOLDER,
+        image: "/images/pilotos/CarlosPineda/portrait/CarlosPineda.jpeg",
     },
     {
         meta: {
@@ -192,10 +192,10 @@ export const PILOTS: PilotProfileContent[] = [
     },
 ];
 
-export const FEATURED_PILOT_SLUGS = [
-    "mauricio-sermeno",
+export const FEATURED_PILOT_SLUGS = [ //Exporta para mostrarlos en el home
+    "roberto-mendoza",
     "eduardo-parker",
-    "carlos-pineda",
+    "jose-flores",
 ];
 
 export function getPilotBySlug(

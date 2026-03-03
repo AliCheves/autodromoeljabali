@@ -44,7 +44,7 @@ export default function PilotoPerfilPage({
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: `url('${pilot.image || PLACEHOLDER}')`,
+            backgroundImage: `url('${pilot.actionImage || pilot.image || PLACEHOLDER}')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent" />
