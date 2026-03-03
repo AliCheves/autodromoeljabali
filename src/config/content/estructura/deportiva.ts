@@ -19,27 +19,27 @@ export const ESTRUCTURA_DEPORTIVA: LeadershipSectionContent = {
         {
             name: "Francisco Hernández Rojas",
             role: "Director General",
-            image: PLACEHOLDER,
+            image: "/images/estructura/deportiva/FranciscoHernandezRojas.jpeg",
         },
         {
             name: "Karen Escamilla",
             role: "Gerente Autódromo Internacional El Jabalí",
-            image: PLACEHOLDER,
+            image: "/images/estructura/deportiva/KarenEscamilla.jpeg",
         },
         {
             name: "Rodrigo Mendoza",
             role: "Gerente de Operaciones",
-            image: PLACEHOLDER,
+            image: "/images/estructura/deportiva/RodrigoMendoza.jpeg",
         },
         {
             name: "Rubén Ángel",
             role: "Director de Carrera FIA",
-            image: PLACEHOLDER,
+            image: "/images/estructura/deportiva/RubenAngel.jpeg",
         },
         {
             name: "Fernando Galdámez",
             role: "Director de Kartismo Nacional",
-            image: PLACEHOLDER,
+            image: "/images/estructura/deportiva/FernandoGaldamez.jpeg",
         },
     ],
 };
