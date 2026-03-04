@@ -412,3 +412,12 @@ export interface KartRentalContent {
         buttonHref: string;
     };
 }
+
+export interface KartingPrivateEventsContent {
+    title: string;
+    description: string;
+    services: string[];
+    submitLabel: string;
+    successTitle: string;
+    successMessage: string;
+}

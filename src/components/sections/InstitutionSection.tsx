@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
-import { INSTITUTION_STATS } from "@/data";
+import { INSTITUTION_STATS, LEGADO_SECTION } from "@/data";
 import { OrganizationalStructureSection } from "./OrganizationalStructureSection";
 import { KartingChampionsSection } from "./KartingChampionsSection";
 import { RaceCalendarSection } from "./RaceCalendarSection";
@@ -27,26 +27,20 @@ export function InstitutionSection({ kartingImage }: InstitutionSectionProps) {
                 className="font-black text-5xl sm:text-6xl lg:text-7xl leading-none mb-2 text-brand-black"
                 style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
               >
-                LEGADO
-                <span className="block text-brand-red" style={{ fontFamily: "inherit" }}>COMPETITIVO</span>
+                {LEGADO_SECTION.title}
+                <span className="block text-brand-red" style={{ fontFamily: "inherit" }}>{LEGADO_SECTION.titleAccent}</span>
               </h1>
               <div className="space-y-6 text-brand-gray-mid text-lg leading-relaxed mt-6" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
-                <p>
-                  Autódromo Internacional, El Jabalí se sitúa a la vanguardia de la excelencia en automovilismo deportivo, combinando décadas de tradición en competición con tecnología de última generación y un compromiso inquebrantable con el rendimiento.
-                </p>
-                <p>
-                  Nuestra institución se dedica a formar talento, avanzar en tecnología de competición y proporcionar instalaciones de clase mundial para pilotos en todas las etapas de su carrera. Desde karting hasta circuitos de competición profesional, forjamos campeones.
-                </p>
-                <p>
-                  Con programas de formación de última generación, estándares de seguridad líderes en la industria y una pasión por el automovilismo que está profundamente arraigada en nuestro ADN, continuamos superando límites y redefiniendo lo que es posible en la pista.
-                </p>
+                {LEGADO_SECTION.paragraphs.map((text, i) => (
+                  <p key={i}>{text}</p>
+                ))}
               </div>
               <Link
-                href="/institucion/legado-competitivo"
+                href={LEGADO_SECTION.ctaHref}
                 className="inline-flex items-center gap-2 mt-8 px-8 py-3 bg-brand-red text-white font-bold text-base sm:text-lg hover:bg-brand-red/80 transition-all"
                 style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
               >
-                DESCUBRE NUESTRA HISTORIA →
+                {LEGADO_SECTION.ctaLabel}
               </Link>
             </div>
 

@@ -3,6 +3,7 @@ import { HeroHome } from "@/components/sections/HeroHome";
 import { InstitutionSection } from "@/components/sections/InstitutionSection";
 import { FeaturedDriversSection } from "@/components/sections/FeaturedDriversSection";
 import { SponsorsBand } from "@/components/ui/Sponsors";
+import { SponsorInquiryCTA } from "@/components/domain/SponsorInquiryCTA";
 import { HOME_HERO, KARTING_CHAMPIONS_IMAGE } from "@/config/content/home";
 import { SPONSORS } from "@/config/sponsors";
 
@@ -18,6 +19,8 @@ export default function HomePage() {
       <InstitutionSection kartingImage={KARTING_CHAMPIONS_IMAGE} />
       <FeaturedDriversSection />
       <SponsorsBand sponsors={SPONSORS} dark label="Socios Técnicos" />
+      <SponsorInquiryCTA />
     </>
   );
 }
+

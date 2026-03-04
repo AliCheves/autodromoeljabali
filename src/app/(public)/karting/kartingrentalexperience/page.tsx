@@ -5,6 +5,7 @@ import { SPONSORS } from "@/config/sponsors";
 import { EventHero } from "@/components/sections/EventHero";
 import { RentalAnnouncementSection } from "@/components/sections/RentalAnnouncementSection";
 import { RentalCalendarSection } from "@/components/sections/RentalCalendarSection";
+import { KartingPrivateEventsCard } from "@/components/sections/KartingPrivateEventsCard";
 import { SponsorsBand } from "@/components/ui/Sponsors";
 import { Section } from "@/components/ui/Section";
 
@@ -68,6 +69,9 @@ export default function KartRental2026Page() {
                     </Link>
                 </div>
             </Section>
+
+            <KartingPrivateEventsCard />
         </>
     );
 }
+
