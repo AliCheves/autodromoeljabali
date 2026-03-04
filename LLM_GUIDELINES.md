@@ -70,11 +70,11 @@ Each navbar item must have its own page:
  /estructura
  /estructura/deportiva
  /karting
+ /karting/kartingrentalexperience
  /eventos
  /eventos/noches-de-aceleracion
  /eventos/campeonato-4t
  /eventos/automovilismo-2025
- /eventos/kart-rental-2026
  /pilotos
  /pilotos/[slug]
  /contacto

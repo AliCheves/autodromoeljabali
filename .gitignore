@@ -6,3 +6,5 @@ out
 LLM-GUIDELINES.md 
 .gitignore
 kartinRentalExperience.png
+.env.local
+.env*

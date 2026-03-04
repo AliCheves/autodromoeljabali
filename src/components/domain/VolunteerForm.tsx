@@ -1,28 +1,33 @@
 "use client";
 
 import { useState } from "react";
-import { OFFICIAL_CONTACT_INFO } from "@/config/content/contact";
+import { sendContactEmail } from "@/lib/server/actions/sendContactEmail";
 
 export function VolunteerForm() {
-    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+    const [errorMsg, setErrorMsg] = useState("");
 
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const form = e.currentTarget;
-        const data = new FormData(form);
-        const name = data.get("name") as string;
-        const email = data.get("email") as string;
-        const message = data.get("message") as string;
+        setStatus("sending");
+        setErrorMsg("");
 
-        const subject = encodeURIComponent(`Voluntariado - ${name}`);
-        const body = encodeURIComponent(
-            `Nombre: ${name}\nCorreo: ${email}\nMensaje: ${message}`
-        );
-        window.location.href = `mailto:${OFFICIAL_CONTACT_INFO.email}?subject=${subject}&body=${body}`;
-        setSubmitted(true);
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+        formData.set("interest", "Voluntariado");
+
+        const result = await sendContactEmail(formData);
+
+        if (result.success) {
+            setStatus("success");
+            form.reset();
+        } else {
+            setStatus("error");
+            setErrorMsg(result.error || "Error desconocido.");
+        }
     }
 
-    if (submitted) {
+    if (status === "success") {
         return (
             <div className="bg-white border border-brand-gray-border p-8 text-center">
                 <div className="w-12 h-12 bg-green-50 border border-green-200 flex items-center justify-center mx-auto mb-4">
@@ -34,7 +39,7 @@ export function VolunteerForm() {
                     ¡Gracias por tu interés!
                 </h3>
                 <p className="text-sm text-brand-gray-mid">
-                    Tu cliente de correo se ha abierto con la información. Nos pondremos en contacto contigo pronto.
+                    Hemos recibido tu solicitud de voluntariado. Nos pondremos en contacto contigo pronto.
                 </p>
             </div>
         );
@@ -84,8 +89,15 @@ export function VolunteerForm() {
                         className="w-full border border-brand-gray-border px-4 py-3 text-sm focus:outline-none focus:border-brand-red transition-colors resize-none"
                     />
                 </div>
-                <button type="submit" className="btn-primary w-full justify-center mt-2">
-                    Enviar Solicitud →
+                {status === "error" && (
+                    <p className="text-sm text-red-600">{errorMsg}</p>
+                )}
+                <button
+                    type="submit"
+                    disabled={status === "sending"}
+                    className="btn-primary w-full justify-center mt-2 disabled:opacity-50"
+                >
+                    {status === "sending" ? "Enviando..." : "Enviar Solicitud →"}
                 </button>
             </div>
         </form>

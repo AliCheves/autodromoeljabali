@@ -1,29 +1,34 @@
 "use client";
 
 import { useState } from "react";
-import { ESCUELAS } from "@/config/escuelas";
-import { OFFICIAL_CONTACT_INFO } from "@/config/content/contact";
+import { ESCUELAS_INTERES_OPTIONS } from "@/config/content/escuelasOptions";
+import { sendContactEmail } from "@/lib/server/actions/sendContactEmail";
 
 export function SchoolInterestForm() {
-    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+    const [errorMsg, setErrorMsg] = useState("");
 
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const form = e.currentTarget;
-        const data = new FormData(form);
-        const name = data.get("name") as string;
-        const email = data.get("email") as string;
-        const school = data.get("school") as string;
+        setStatus("sending");
+        setErrorMsg("");
 
-        const subject = encodeURIComponent(`Interés Escuela - ${school} - ${name}`);
-        const body = encodeURIComponent(
-            `Nombre: ${name}\nCorreo: ${email}\nEscuela: ${school}`
-        );
-        window.location.href = `mailto:${OFFICIAL_CONTACT_INFO.email}?subject=${subject}&body=${body}`;
-        setSubmitted(true);
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+        formData.set("message", `Interesado en: ${formData.get("interest")}`);
+
+        const result = await sendContactEmail(formData);
+
+        if (result.success) {
+            setStatus("success");
+            form.reset();
+        } else {
+            setStatus("error");
+            setErrorMsg(result.error || "Error desconocido.");
+        }
     }
 
-    if (submitted) {
+    if (status === "success") {
         return (
             <div className="bg-white border border-brand-gray-border p-8 text-center">
                 <div className="w-12 h-12 bg-green-50 border border-green-200 flex items-center justify-center mx-auto mb-4">
@@ -35,7 +40,7 @@ export function SchoolInterestForm() {
                     ¡Solicitud Enviada!
                 </h3>
                 <p className="text-sm text-brand-gray-mid">
-                    Tu cliente de correo se ha abierto. Nos pondremos en contacto contigo pronto.
+                    Hemos recibido tu solicitud. Nos pondremos en contacto contigo pronto.
                 </p>
             </div>
         );
@@ -47,7 +52,7 @@ export function SchoolInterestForm() {
                 Formulario de Interés
             </h3>
             <p className="text-sm text-brand-gray-mid mb-6">
-                Selecciona la escuela de tu interés y déjanos tus datos.
+                Selecciona el área de tu interés y déjanos tus datos.
             </p>
             <div className="space-y-4">
                 <div>
@@ -76,23 +81,30 @@ export function SchoolInterestForm() {
                 </div>
                 <div>
                     <label className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light block mb-1.5">
-                        Escuela *
+                        Área de Interés *
                     </label>
                     <select
-                        name="school"
+                        name="interest"
                         required
                         className="w-full border border-brand-gray-border px-4 py-3 text-sm focus:outline-none focus:border-brand-red transition-colors bg-white text-brand-gray-mid appearance-none"
                     >
-                        <option value="">Selecciona una escuela</option>
-                        {ESCUELAS.map((school) => (
-                            <option key={school.id} value={school.name}>
-                                {school.name}
+                        <option value="">Selecciona una opción</option>
+                        {ESCUELAS_INTERES_OPTIONS.map((option) => (
+                            <option key={option} value={option}>
+                                {option}
                             </option>
                         ))}
                     </select>
                 </div>
-                <button type="submit" className="btn-primary w-full justify-center mt-2">
-                    Enviar Solicitud →
+                {status === "error" && (
+                    <p className="text-sm text-red-600">{errorMsg}</p>
+                )}
+                <button
+                    type="submit"
+                    disabled={status === "sending"}
+                    className="btn-primary w-full justify-center mt-2 disabled:opacity-50"
+                >
+                    {status === "sending" ? "Enviando..." : "Enviar Solicitud →"}
                 </button>
             </div>
         </form>

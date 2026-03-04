@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { OFFICIAL_CONTACT_INFO } from "@/config/content/contact";
+import { ContactForm } from "@/components/domain/ContactForm";
 import { Section } from "@/components/ui/Section";
 
 export const metadata: Metadata = {
@@ -77,37 +78,7 @@ export default function ContactoPage() {
 
             {/* Form */}
             <div>
-              <h2 className="font-display font-bold text-xl uppercase text-brand-black mb-6">
-                Envíanos un Mensaje
-              </h2>
-              {/* Phase 2: server action + Supabase */}
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light block mb-1.5">Nombre</label>
-                    <input type="text" className="w-full border border-brand-gray-border px-4 py-3 text-sm focus:outline-none focus:border-brand-red transition-colors" />
-                  </div>
-                  <div>
-                    <label className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light block mb-1.5">Apellido</label>
-                    <input type="text" className="w-full border border-brand-gray-border px-4 py-3 text-sm focus:outline-none focus:border-brand-red transition-colors" />
-                  </div>
-                </div>
-                <div>
-                  <label className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light block mb-1.5">Email</label>
-                  <input type="email" className="w-full border border-brand-gray-border px-4 py-3 text-sm focus:outline-none focus:border-brand-red transition-colors" />
-                </div>
-                <div>
-                  <label className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light block mb-1.5">Asunto</label>
-                  <input type="text" className="w-full border border-brand-gray-border px-4 py-3 text-sm focus:outline-none focus:border-brand-red transition-colors" />
-                </div>
-                <div>
-                  <label className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light block mb-1.5">Mensaje</label>
-                  <textarea rows={5} className="w-full border border-brand-gray-border px-4 py-3 text-sm focus:outline-none focus:border-brand-red transition-colors resize-none" />
-                </div>
-                <button className="btn-primary w-full justify-center">
-                  Enviar Mensaje
-                </button>
-              </div>
+              <ContactForm />
             </div>
           </div>
         </div>
