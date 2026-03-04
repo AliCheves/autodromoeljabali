@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ESCUELAS } from "@/config/escuelas";
+import { OFFICIAL_CONTACT_INFO } from "@/config/content/contact";
 
 export function SchoolInterestForm() {
     const [submitted, setSubmitted] = useState(false);
@@ -18,7 +19,7 @@ export function SchoolInterestForm() {
         const body = encodeURIComponent(
             `Nombre: ${name}\nCorreo: ${email}\nEscuela: ${school}`
         );
-        window.location.href = `mailto:escuelas@autodromojabali.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:${OFFICIAL_CONTACT_INFO.email}?subject=${subject}&body=${body}`;
         setSubmitted(true);
     }
 

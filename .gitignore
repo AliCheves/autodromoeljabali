@@ -5,3 +5,4 @@ out
 .env.* 
 LLM-GUIDELINES.md 
 .gitignore
+kartinRentalExperience.png

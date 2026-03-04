@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { OFFICIAL_CONTACT_INFO } from "@/config/content/contact";
 
 export function VolunteerForm() {
     const [submitted, setSubmitted] = useState(false);
@@ -17,7 +18,7 @@ export function VolunteerForm() {
         const body = encodeURIComponent(
             `Nombre: ${name}\nCorreo: ${email}\nMensaje: ${message}`
         );
-        window.location.href = `mailto:voluntariado@autodromojabali.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:${OFFICIAL_CONTACT_INFO.email}?subject=${subject}&body=${body}`;
         setSubmitted(true);
     }
 

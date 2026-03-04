@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { OFFICIAL_CONTACT_INFO } from "@/config/content/contact";
 
 const FOOTER_LINKS = {
   "Accesos Rápidos": [
@@ -45,6 +46,7 @@ const SOCIAL_LINKS = [
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const contact = OFFICIAL_CONTACT_INFO;
 
   return (
     <footer className="bg-brand-black text-white">
@@ -91,24 +93,25 @@ export function Footer() {
             </h4>
             <ul className="space-y-3 text-sm text-brand-gray-light">
               <li>
-                <span className="block text-white">Autódromo El Jabalí</span>
-                Campaña de Automovilismo<br />
-                San Salvador, El Salvador
+                <span className="block text-white">{contact.institution}</span>
+                {contact.address.line1}<br />
+                {contact.address.line2}<br />
+                {contact.address.country}
               </li>
               <li>
                 <a
-                  href="tel:+50322090000"
+                  href={`tel:${contact.phone}`}
                   className="hover:text-brand-red transition-colors"
                 >
-                  +503 2209-0000
+                  {contact.phoneFormatted}
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@autdromojabali.com"
+                  href={`mailto:${contact.email}`}
                   className="hover:text-brand-red transition-colors break-all"
                 >
-                  info@autodomojabali.com
+                  {contact.email}
                 </a>
               </li>
             </ul>
@@ -145,7 +148,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-brand-gray pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-mono text-2xs text-brand-gray-light uppercase tracking-widest">
-            © {currentYear} Autódromo Internacional El Jabalí. Todos los derechos reservados.
+            © {currentYear} {contact.institution}. Todos los derechos reservados.
           </p>
           <div className="flex gap-6">
             <Link
