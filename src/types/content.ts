@@ -381,3 +381,34 @@ export interface EstructuraGaleriaContent {
     hero: HeroContent;
     images: GalleryImage[];
 }
+
+// ------------------------------------
+// Karting Rental domain
+// ------------------------------------
+
+export interface RentalCalendarDay {
+    day: number;
+    month: string;
+}
+
+export interface RentalCalendarGroup {
+    title: string;
+    schedule: string;
+    days: RentalCalendarDay[];
+}
+
+export interface KartRentalContent {
+    meta: PageMeta;
+    hero: HeroContent;
+    announcement: {
+        title: string;
+        paragraphs: string[];
+    };
+    calendar: RentalCalendarGroup[];
+    finalCTA: {
+        title: string;
+        description: string;
+        buttonText: string;
+        buttonHref: string;
+    };
+}

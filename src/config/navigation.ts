@@ -20,7 +20,13 @@ export const navigation: NavLink[] = [
       { label: "Galería", href: "/estructura/galeria" },
     ],
   },
-  { label: "Karting", href: "/karting" },
+  {
+    label: "Karting",
+    href: "/karting",
+    children: [
+      { label: "Karting Rental Experience", href: "/karting/kartingrentalexperience" },
+    ],
+  },
   {
     label: "Eventos",
     href: "/eventos",
@@ -28,7 +34,6 @@ export const navigation: NavLink[] = [
       { label: "Noches de Aceleración", href: "/eventos/noches-de-aceleracion" },
       { label: "Campeonato 4T", href: "/eventos/campeonato-4t" },
       { label: "Automovilismo 2026", href: "/eventos/automovilismo-2026" },
-      { label: "Kart Rental 2026", href: "/eventos/kart-rental-2026" },
     ],
   },
   { label: "Pilotos", href: "/pilotos" },

@@ -4,17 +4,17 @@ const PLACEHOLDER = "/images/placeholders/placeholder.svg";
 
 export const KART_RENTAL_2026: RentalExperienceContent = {
     meta: {
-        title: "Kart Rental Experience 2026",
+        title: "Karting Rental Experience",
         description:
             "Experiencia de alquiler de karts en el Autódromo Internacional El Jabalí. Viernes y sábados.",
     },
     hero: {
         label: "Experiencia de Pista",
-        title: "KART RENTAL",
-        titleAccent: "EXPERIENCE 2026",
+        title: "KARTING RENTAL",
+        titleAccent: "EXPERIENCE",
         description:
             "Vive la emoción del karting en un circuito de clase mundial. Sesiones disponibles viernes y sábados.",
-        image: PLACEHOLDER,
+        image: "/images/karting/karting-rental-experience/first-karting-rental-experience.jpeg",
     },
     schedule: [
         { day: "Viernes", startTime: "5:00 PM", endTime: "12:00 MN" },
@@ -41,7 +41,7 @@ export const KART_RENTAL_2026: RentalExperienceContent = {
         },
     ],
     description:
-        "La experiencia Kart Rental ofrece acceso a nuestro circuito profesional de karting con equipamiento de primera clase. Ideal para familias, amigos y eventos corporativos. Powered by Freedom.",
+        "La experiencia Karting Rental ofrece acceso a nuestro circuito profesional de karting con equipamiento de primera clase. Ideal para familias, amigos y eventos corporativos. Powered by Freedom.",
     highlights: [
         "Circuito profesional FIA de 850 metros",
         "Karts de última generación con motor 4T",

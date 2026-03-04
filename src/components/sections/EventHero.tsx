@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { HeroContent } from "@/types/content";
 
 const PLACEHOLDER = "/images/placeholders/placeholder.svg";
@@ -15,11 +16,14 @@ export function EventHero({ label, title, titleAccent, description, image }: Eve
 
     return (
         <section className="relative bg-brand-black overflow-hidden">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-30"
-                style={{ backgroundImage: `url('${bgImage}')` }}
+            <Image
+                src={bgImage}
+                alt=""
+                fill
+                sizes="100vw"
+                className="object-cover object-center opacity-50"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent" />
 
             <div className="relative z-10 container-xl py-20 lg:py-28">
                 <p className="section-label text-brand-red">{label}</p>

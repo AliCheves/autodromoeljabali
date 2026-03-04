@@ -9,7 +9,7 @@ export const VOLUNTARIADO_CONTENT: VoluntariadoContent = {
         titleAccent: "VOLUNTARIADO",
         description:
             "Únete a nuestra comunidad de voluntarios y forma parte del equipo que hace posible cada evento del Autódromo Internacional El Jabalí.",
-        image: PLACEHOLDER,
+        image: "/images/voluntariado/nuevo-kart.jpeg",
     },
 
     sections: [
