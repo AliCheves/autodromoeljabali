@@ -12,7 +12,11 @@ const STAT_COLORS = [
   { bg: "bg-black", text: "text-brand-red" },
 ];
 
-export function InstitutionSection() {
+interface InstitutionSectionProps {
+  kartingImage: string;
+}
+
+export function InstitutionSection({ kartingImage }: InstitutionSectionProps) {
   return (
     <>
       <Section id="institucion">
@@ -69,7 +73,7 @@ export function InstitutionSection() {
         </div>
       </Section>
       <OrganizationalStructureSection />
-      <KartingChampionsSection />
+      <KartingChampionsSection image={kartingImage} />
       <RaceCalendarSection />
     </>
   );

@@ -2,7 +2,11 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-export function KartingChampionsSection() {
+interface KartingChampionsSectionProps {
+  image: string;
+}
+
+export function KartingChampionsSection({ image }: KartingChampionsSectionProps) {
   return (
     <section
       className="bg-black py-20 flex flex-col items-center"
@@ -14,7 +18,7 @@ export function KartingChampionsSection() {
             className="relative w-full max-w-md md:max-w-lg overflow-hidden shadow-lg aspect-[11/10] border-8 border-white"
           >
             <Image
-              src="/images/placeholders/placeholder.svg"
+              src={image}
               alt="Karting Champions"
               fill
               className="object-cover"
