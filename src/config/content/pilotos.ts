@@ -25,6 +25,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Equipo", value: "N/A" },
         ],
         image: "/images/pilotos/MauricioSermeno/portrait/MauricioSermeno.jpeg",
+        actionImage: "/images/pilotos/MauricioSermeno/action/genericAction.jpg",
     },
     {
         meta: {
@@ -50,6 +51,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Equipo", value: "Parker Racing Team (PRT)" },
         ],
         image: "/images/pilotos/EduardoParker/portrait/EduardoParker.jpeg",
+        actionImage: "/images/pilotos/EduardoParker/action/genericAction.jpg",
     },
     {
         meta: {
@@ -73,6 +75,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Categoría actual", value: "N/A" },
         ],
         image: "/images/pilotos/RobertoAlonsoTurcios/portrait/RobertoAlonsoTurcios.jpeg",
+        actionImage: "/images/pilotos/RobertoAlonsoTurcios/action/genericAction.jpg",
     },
     {
         meta: {
@@ -97,6 +100,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Rol", value: "Voluntario ACES" },
         ],
         image: "/images/pilotos/JoseFlores/portrait/JoseFlores.jpeg",
+        actionImage: "/images/pilotos/JoseFlores/action/genericAction.jpg",
     },
     {
         meta: {
@@ -121,6 +125,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Año foco", value: "2026" },
         ],
         image: "/images/pilotos/RobertoMendoza/portrait/RobertoMendoza.jpeg",
+        actionImage: "/images/pilotos/RobertoMendoza/action/genericAction.jpg",
     },
     {
         meta: {
@@ -144,6 +149,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Campeonatos", value: "N/A" },
         ],
         image: "/images/pilotos/CesarRivas/portrait/CesarRivas.jpeg",
+        actionImage: "/images/pilotos/CesarRivas/action/genericAction.jpg",
     },
     {
         meta: {
@@ -166,6 +172,7 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Categoría actual", value: "4T ACES" },
         ],
         image: "/images/pilotos/CarlosPineda/portrait/CarlosPineda.jpeg",
+        actionImage: "/images/pilotos/CarlosPineda/action/genericAction.jpg",
     },
     {
         meta: {
@@ -188,7 +195,8 @@ export const PILOTS: PilotProfileContent[] = [
             { label: "Auto circuito", value: "VW MK1" },
             { label: "Categoría actual", value: "4T ACES" },
         ],
-        image: PLACEHOLDER,
+        image: "/images/pilotos/NapoleonSerrano/portrait/NapoleonSerrano.jpeg",
+        actionImage: "/images/pilotos/NapoleonSerrano/action/genericAction.jpg",
     },
 ];
 

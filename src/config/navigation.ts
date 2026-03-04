@@ -17,6 +17,7 @@ export const navigation: NavLink[] = [
     href: "/estructura",
     children: [
       { label: "Estructura Deportiva", href: "/estructura/deportiva" },
+      { label: "Galería", href: "/estructura/galeria" },
     ],
   },
   { label: "Karting", href: "/karting" },

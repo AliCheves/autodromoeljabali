@@ -344,3 +344,40 @@ export interface PageMeta {
     title: string;
     description: string;
 }
+
+// ------------------------------------
+// Estructura / institutional domain
+// ------------------------------------
+
+export interface IntegrityItem {
+    title: string;
+    description: string;
+}
+
+export interface FiaVideoSection {
+    title: string;
+    description: string[];
+    video: {
+        src: string;
+        poster?: string;
+    };
+}
+
+export interface IntegritySection {
+    title: string;
+    items: IntegrityItem[];
+}
+
+export interface EstructuraPageContent {
+    meta: PageMeta;
+    hero: HeroContent;
+    narrative: NarrativeSection[];
+    fiaSection: FiaVideoSection;
+    integrityHighlights: IntegritySection;
+}
+
+export interface EstructuraGaleriaContent {
+    meta: PageMeta;
+    hero: HeroContent;
+    images: GalleryImage[];
+}

@@ -41,13 +41,14 @@ export default function PilotoPerfilPage({
     <>
       {/* Hero */}
       <section className="relative bg-brand-black overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{
-            backgroundImage: `url('${pilot.actionImage || pilot.image || PLACEHOLDER}')`,
-          }}
+        <Image
+          src={pilot.actionImage || pilot.image || PLACEHOLDER}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent" />
         <div className="relative z-10 container-xl pt-24 pb-16 flex flex-col lg:flex-row items-end gap-12">
           <div className="flex-1">
             <DisciplineChips disciplines={pilot.disciplines} size="md" />
@@ -128,18 +129,8 @@ export default function PilotoPerfilPage({
               ))}
             </div>
 
-            {/* Action image placeholder */}
-            {pilot.actionImage && (
-              <div className="mt-8 relative aspect-video overflow-hidden rounded-lg bg-brand-gray-bg">
-                <Image
-                  src={pilot.actionImage}
-                  alt={`${pilot.name} en acción`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 768px"
-                />
-              </div>
-            )}
+
+
           </div>
 
           <div className="mt-12 flex justify-end">
