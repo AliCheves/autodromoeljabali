@@ -37,11 +37,21 @@ export const CAMPEONATO_4T: ChampionshipContent = {
     registration: {
         totalSlots: 20,
         requirements: [
-            "Chasis requerido",
-            "Motores y configuración montada en pista",
+            "Edad mínima: 12 años",
+            "Inscripción por fecha: $250.00 (incluye 6 prácticas, clasificación, 3 heats, servicio de motor, transporte de kart y 4 pases familiares)",
+            "Arrive & Drive disponible: $450.00 + depósito",
+            "Motor: Ghost Predator 4T — 212 c.c., monocilíndrico, enfriado por aire, embrague centrífugo — proporcionado por ACES",
+            "Llantas obligatorias: MG RL2 (compuesto azul), suministradas por ACES",
+            "Chasis: libre de marca y año (ejes traseros de 40mm y 50mm, sin restricción de dureza)",
+            "Entrega de chasis al autódromo o sede ACES 72 horas antes del evento para inspección técnica",
+            "Cable de seguridad de frenos estrictamente obligatorio",
+            "Escape de fábrica 4T — sin modificaciones ni envoltura térmica",
+            "Relación de engranajes fija, determinada por ACES para garantizar paridad",
+            "Categoría Heavy: peso mínimo 380 lbs | Categoría Light: peso mínimo 340 lbs",
+            "Para optar a premios de fin de campeonato, el piloto debe participar en las 6 fechas",
         ],
-        contactPhones: ["7856-6554", "2231-5555"],
-        engineNote: "Motores de carrera preparados en USA",
+        contactPhones: ["2231-5555"],
+        engineNote: "Motores Ghost Predator 4T preparados en USA — asignados por sorteo público",
     },
     pressConference: {
         venue: "Hotel Hyatt Centric",
@@ -62,4 +72,18 @@ export const CAMPEONATO_4T: ChampionshipContent = {
         fileName: "Reglamento Campeonato 4T 2026",
         filePath: "/docs/reglamentos/reglamento-campeonato-4t-2026.pdf",
     },
+    documents: [
+        {
+            label: "Descargar Reglamento Oficial 2026",
+            fileName: "Reglamento Campeonato 4T 2026",
+            filePath: "/docs/reglamentos/reglamento-campeonato-4t-2026.pdf",
+            variant: "primary",
+        },
+        {
+            label: "Descargar Comunicado — 1er Fecha",
+            fileName: "COMUNICADO 1er. Fecha",
+            filePath: "/docs/comunicados/COMUNICADO%201er.%20Fecha.pdf",
+            variant: "secondary",
+        },
+    ],
 };

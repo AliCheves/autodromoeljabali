@@ -135,6 +135,7 @@ export interface EventDocument {
     label: string;
     fileName: string;
     filePath: string;
+    variant?: "primary" | "secondary";
 }
 
 export interface ChampionshipContent {
@@ -150,6 +151,7 @@ export interface ChampionshipContent {
     pressConference?: PressConference;
     sponsors?: string[];
     document?: EventDocument;
+    documents?: EventDocument[];
 }
 
 export interface CalendarSeasonContent {

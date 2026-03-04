@@ -43,6 +43,7 @@ export const SPONSOR_INQUIRY_CONTENT = {
     formLabels: {
         nameOrBrand: "Nombre o Marca",
         email: "Correo electrónico",
+        phone: "Teléfono",
     },
     submitLabel: "Enviar solicitud",
     successMessage: "Te contactaremos en menos de 24 horas.",

@@ -32,7 +32,7 @@ export function EventHero({ label, title, titleAccent, description, image }: Eve
                     <br />
                     <span className="text-brand-red">{titleAccent}</span>
                 </h1>
-                <p className="mt-6 text-brand-gray-light text-lg max-w-2xl leading-relaxed">
+                <p className="mt-6 text-brand-gray-light text-lg max-w-2xl leading-relaxed break-words">
                     {description}
                 </p>
             </div>

@@ -19,12 +19,13 @@ export function SponsorInquiryCTA() {
         const form = e.currentTarget;
         const name = (form.elements.namedItem("name") as HTMLInputElement).value;
         const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+        const phone = (form.elements.namedItem("phone") as HTMLInputElement).value;
 
         const formData = new FormData();
         formData.set("name", name);
         formData.set("email", email);
         formData.set("interest", "Patrocinio Élite");
-        formData.set("message", "Solicitud de patrocinio élite recibida desde la landing page.");
+        formData.set("message", `Teléfono: ${phone}\n\nSolicitud de patrocinio élite recibida desde la landing page.`);
 
         const result = await sendContactEmail(formData);
 
@@ -99,6 +100,17 @@ export function SponsorInquiryCTA() {
                                     <input
                                         type="email"
                                         name="email"
+                                        required
+                                        className="w-full bg-white/10 border border-white/20 text-white placeholder-white/30 px-4 py-3 text-sm rounded focus:outline-none focus:border-brand-red transition-colors"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light block mb-1.5 text-left">
+                                        {content.formLabels.phone} *
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        name="phone"
                                         required
                                         className="w-full bg-white/10 border border-white/20 text-white placeholder-white/30 px-4 py-3 text-sm rounded focus:outline-none focus:border-brand-red transition-colors"
                                     />

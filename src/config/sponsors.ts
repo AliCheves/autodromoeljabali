@@ -6,6 +6,14 @@ export interface Sponsor {
 
 export const SPONSORS: Sponsor[] = [
     {
+        name: "ACES",
+        logo: "/images/logos/partners/ACES-.png",
+    },
+    {
+        name: "FIA",
+        logo: "/images/logos/partners/Member FIA.png",
+    },
+    {
         name: "Direct English",
         logo: "/images/logos/sponsors/DIRECT ENGLISH.png",
     },

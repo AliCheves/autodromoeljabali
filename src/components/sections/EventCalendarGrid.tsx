@@ -23,7 +23,7 @@ export function EventCalendarGrid({
                     {rounds.map((round, idx) => (
                         <div
                             key={`${round.day}-${round.month}-${idx}`}
-                            className="bg-white p-6 flex flex-col items-center text-center group hover:bg-brand-black transition-colors duration-200"
+                            className="min-w-0 overflow-hidden bg-white p-6 flex flex-col items-center text-center group hover:bg-brand-black transition-colors duration-200"
                         >
                             <span className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light group-hover:text-brand-red mb-2">
                                 Ronda {idx + 1}
@@ -40,7 +40,7 @@ export function EventCalendarGrid({
                                 </span>
                             )}
                             {round.sponsor && (
-                                <Badge variant="red" className="mt-3">
+                                <Badge variant="red" className="mt-3 truncate max-w-full">
                                     {round.sponsor}
                                 </Badge>
                             )}

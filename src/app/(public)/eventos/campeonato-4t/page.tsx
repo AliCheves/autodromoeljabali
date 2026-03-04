@@ -62,6 +62,7 @@ export default function Campeonato4TPage() {
                 label="Premiación Oficial"
                 title="PREMIOS"
                 titleAccent="DEL CAMPEONATO"
+                note="Premios por categoría (Heavy y Light). El campeón asiste al FIA Americas Awards."
             />
 
             {content.registration && (
@@ -72,10 +73,13 @@ export default function Campeonato4TPage() {
                 />
             )}
 
-            {content.document && (
+            {content.documents && content.documents.length > 0 && (
                 <Section gray>
                     <div className="container-xl">
-                        <EventDocumentCTA document={content.document} />
+                        <EventDocumentCTA
+                            documents={content.documents}
+                            sectionTitle="Documentos Oficiales"
+                        />
                     </div>
                 </Section>
             )}
