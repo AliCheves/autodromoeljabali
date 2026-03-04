@@ -9,10 +9,10 @@ export const HOME_HERO: HeroContent = {
 };
 
 export const INSTITUTION_STATS: StatItem[] = [
-    { value: "45+", label: "Años de Experiencia" },
+    { value: "45+", label: "Impulsando el Deporte de Motor" },
     { value: "1000+", label: "Host de Carreras" },
-    { value: "75+", label: "Configuraciones de Pista" },
-    { value: "50+", label: "Eventos Anuales" },
+    { value: "60+", label: "Layouts de Karting" },
+    { value: "100+", label: "Eventos Deportivos al año" },
 ];
 
 export const HOME_CALENDAR: CalendarEvent[] = [
