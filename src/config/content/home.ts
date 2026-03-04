@@ -11,7 +11,7 @@ export const HOME_HERO: HeroContent = {
 export const INSTITUTION_STATS: StatItem[] = [
     { value: "45+", label: "Impulsando el Deporte de Motor" },
     { value: "1000+", label: "Host de Carreras" },
-    { value: "100k+", label: "Visitantes al año" },
+    { value: "100K+", label: "Visitantes al año" },
     { value: "100+", label: "Eventos Deportivos al año" },
 ];
 
