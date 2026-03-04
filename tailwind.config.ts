@@ -59,8 +59,8 @@ const config: Config = {
         "3": "3px",
       },
       animation: {
-        "marquee": "marquee 30s linear infinite",
-        "marquee-reverse": "marquee-reverse 30s linear infinite",
+        "marquee": "marquee 18s linear infinite",
+        "marquee-reverse": "marquee-reverse 18s linear infinite",
         "fade-up": "fadeUp 0.6s ease-out forwards",
         "fade-in": "fadeIn 0.4s ease-out forwards",
       },

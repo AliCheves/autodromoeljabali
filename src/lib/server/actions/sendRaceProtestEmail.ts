@@ -136,7 +136,7 @@ export async function sendRaceProtestEmail(
   try {
     await resend.emails.send({
       from: `Autodromo Web <${process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev"}>`,
-      to: "alipixeled2020@gmail.com", // TODO: revert to OFFICIAL_CONTACT_INFO.email
+      to: OFFICIAL_CONTACT_INFO.email,
       subject: `Protesta Oficial 4T — ${driverName} vs ${opponentName}`,
       html: buildProtestEmailHtml({
         driverName,
