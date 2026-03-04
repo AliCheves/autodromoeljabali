@@ -7,6 +7,7 @@ import { clsx } from "clsx";
 import type { NavLink } from "@/types";
 import { NavDropdown } from "@/components/layout/NavDropdown";
 import { MobileNavDropdown } from "@/components/layout/MobileNavDropdown";
+import { BrandLogos } from "@/components/layout/BrandLogos";
 
 interface NavbarClientProps {
     links: NavLink[];
@@ -39,13 +40,16 @@ export function NavbarClient({ links }: NavbarClientProps) {
                 style={{ height: "var(--nav-height)" }}
             >
                 <nav className="container-xl h-full flex items-center justify-between">
-                    <Link href="/" className="flex flex-col leading-none group">
-                        <span className="font-display font-black text-sm uppercase tracking-widest text-brand-black group-hover:text-brand-red transition-colors">
-                            Autódromo Internacional
-                        </span>
-                        <span className="font-display font-black text-xs uppercase tracking-[0.25em] text-brand-red">
-                            El Jabalí
-                        </span>
+                    <Link href="/" className="flex items-center gap-x-4" aria-label="Autódromo Internacional El Jabalí – Inicio">
+                        <BrandLogos />
+                        <div className="hidden sm:flex flex-col leading-none">
+                            <span className="font-display font-black text-sm uppercase tracking-widest text-brand-black">
+                                Autódromo Internacional
+                            </span>
+                            <span className="font-display font-black text-xs uppercase tracking-[0.25em] text-brand-red">
+                                El Jabalí
+                            </span>
+                        </div>
                     </Link>
 
                     <ul className="hidden lg:flex items-center gap-8">
