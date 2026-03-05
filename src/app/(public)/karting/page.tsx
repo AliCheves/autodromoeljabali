@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
-import { KARTING_CLASSES, STANDINGS, RACE_EVENTS } from "@/data";
-import { clsx } from "clsx";
+import { getNextEvents, formatRaceDate } from "@/lib/events";
 
 export const metadata: Metadata = {
   title: "Karting",
@@ -38,47 +37,16 @@ function KartingHero() {
   );
 }
 
-function KartingClasses() {
-  return (
-    <Section id="clases">
-      <div className="container-xl">
-        <p className="section-label">Campeonato de Competición</p>
-        <h2 className="font-display font-black text-heading-lg text-brand-black mb-12">
-          ELIGE TU <span className="text-brand-red">CLASE</span>
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-gray-border">
-          {KARTING_CLASSES.map((cls, i) => (
-            <div
-              key={cls.id}
-              className="bg-white p-8 flex flex-col gap-4 hover:bg-brand-gray-bg transition-colors duration-200 group cursor-default"
-            >
-              {/* Icon placeholder */}
-              <div className="w-10 h-10 rounded-full border-2 border-brand-red flex items-center justify-center text-brand-red font-display font-black text-lg">
-                {i === 0 ? "C" : i === 1 ? "J" : i === 2 ? "S" : "M"}
-              </div>
-
-              <div>
-                <h3 className="font-display font-black text-2xl uppercase text-brand-black group-hover:text-brand-red transition-colors mb-1">
-                  {cls.name}
-                </h3>
-                <p className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light">
-                  {cls.ageMin} – {cls.ageMax ?? "+"} Años · {cls.engine}
-                </p>
-              </div>
-
-              <p className="text-sm text-brand-gray-mid leading-relaxed">
-                {cls.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Section>
-  );
-}
-
 function StandingsTable() {
+  const placeholders = Array.from({ length: 5 }, (_, i) => ({
+    position: i + 1,
+    driver: "Por determinarse",
+    team: "—",
+    points: "—",
+    wins: "—",
+    podiums: "—",
+  }));
+
   return (
     <Section id="clasificacion" gray>
       <div className="container-xl">
@@ -96,20 +64,19 @@ function StandingsTable() {
                 <th className="hidden sm:table-cell">Puntos</th>
                 <th className="hidden md:table-cell">Victorias</th>
                 <th className="hidden md:table-cell">Podios</th>
-                <th className="w-10"></th>
               </tr>
             </thead>
             <tbody>
-              {STANDINGS.map((entry) => (
+              {placeholders.map((entry) => (
                 <tr key={entry.position} className="hover:bg-brand-gray-bg/50 transition-colors">
                   <td>
-                    <span className="font-display font-black text-lg text-brand-black">
+                    <span className="font-display font-black text-lg text-brand-gray-light">
                       {entry.position}
                     </span>
                   </td>
                   <td>
                     <div>
-                      <div className="font-display font-bold text-base text-brand-black uppercase leading-tight">
+                      <div className="font-display font-bold text-base text-brand-gray-mid uppercase leading-tight">
                         {entry.driver}
                       </div>
                       <div className="font-mono text-2xs text-brand-gray-light uppercase tracking-widest">
@@ -118,12 +85,9 @@ function StandingsTable() {
                     </div>
                   </td>
                   <td className="hidden sm:table-cell">
-                    <div>
-                      <span className="font-display font-bold text-xl text-brand-black">
-                        {entry.points}
-                      </span>
-                      <span className="font-mono text-2xs text-brand-gray-light ml-1">pts</span>
-                    </div>
+                    <span className="font-display font-bold text-xl text-brand-gray-light">
+                      {entry.points}
+                    </span>
                   </td>
                   <td className="hidden md:table-cell font-body text-sm text-brand-gray-mid">
                     {entry.wins}
@@ -131,35 +95,25 @@ function StandingsTable() {
                   <td className="hidden md:table-cell font-body text-sm text-brand-gray-mid">
                     {entry.podiums}
                   </td>
-                  <td>
-                    {entry.trend === "up" && (
-                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-                      </svg>
-                    )}
-                    {entry.trend === "down" && (
-                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    )}
-                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <div className="mt-8 flex justify-center">
-          <button className="btn-outline text-xs">
-            Ver Clasificación Completa
-          </button>
-        </div>
+        <p className="mt-6 text-center text-sm text-brand-gray-mid">
+          La tabla de posiciones se actualizará cuando inicie el campeonato.
+        </p>
       </div>
     </Section>
   );
 }
 
 function UpcomingRaces() {
+  const events = getNextEvents(6);
+
+  if (events.length === 0) return null;
+
   return (
     <Section id="proximas">
       <div className="container-xl">
@@ -169,73 +123,71 @@ function UpcomingRaces() {
         </h2>
 
         <div className="space-y-4">
-          {RACE_EVENTS.map((event) => (
-            <div
-              key={event.id}
-              className="border border-brand-gray-border bg-white p-6 flex flex-col sm:flex-row sm:items-center gap-4 hover:border-brand-red transition-colors duration-200 group"
-            >
-              {/* Date block */}
-              <div className="flex-shrink-0 w-24 text-center">
-                <div className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light">
-                  {event.date.split(" ")[1]} {event.date.split(" ")[2]}
+          {events.map((event) => {
+            const formatted = formatRaceDate(event.date);
+            return (
+              <Link
+                key={event.id}
+                href={event.page}
+                className="border border-brand-gray-border bg-white p-6 flex flex-col sm:flex-row sm:items-center gap-4 hover:border-brand-red transition-colors duration-200 group block"
+              >
+                <div className="flex-shrink-0 w-24 text-center">
+                  <div className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light">
+                    {formatted.month} {formatted.year}
+                  </div>
+                  <div className="font-display font-black text-4xl text-brand-black leading-none">
+                    {formatted.day}
+                  </div>
                 </div>
-                <div className="font-display font-black text-4xl text-brand-black leading-none">
-                  {event.date.split(" ")[0]}
+
+                <div className="w-px h-12 bg-brand-gray-border hidden sm:block" />
+
+                <div className="flex-1">
+                  <h3 className="font-display font-bold text-xl uppercase text-brand-black group-hover:text-brand-red transition-colors mb-1">
+                    {event.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-4 text-sm text-brand-gray-mid">
+                    <span className="flex items-center gap-1.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      </svg>
+                      {event.location}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+                      </svg>
+                      {event.time}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />
+                      </svg>
+                      {event.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="w-px h-12 bg-brand-gray-border hidden sm:block" />
-
-              {/* Event info */}
-              <div className="flex-1">
-                <h3 className="font-display font-bold text-xl uppercase text-brand-black group-hover:text-brand-red transition-colors mb-1">
-                  {event.name}
-                </h3>
-                <div className="flex flex-wrap gap-4 text-sm text-brand-gray-mid">
-                  <span className="flex items-center gap-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    </svg>
-                    {event.circuit}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    {event.time}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                    </svg>
-                    {event.distance}
+                <div className="flex items-center gap-4 flex-shrink-0">
+                  <span className="font-mono text-2xs uppercase tracking-widest px-3 py-1 bg-brand-gray-bg text-brand-gray-mid border border-brand-gray-border">
+                    Ver Evento
                   </span>
                 </div>
-              </div>
+              </Link>
+            );
+          })}
+        </div>
 
-              {/* Status + CTA */}
-              <div className="flex items-center gap-4 flex-shrink-0">
-                <span
-                  className={clsx(
-                    "font-mono text-2xs uppercase tracking-widest px-3 py-1",
-                    event.status === "open" && "bg-green-50 text-green-700 border border-green-200",
-                    event.status === "upcoming" && "bg-brand-gray-bg text-brand-gray-mid border border-brand-gray-border",
-                    event.status === "closed" && "bg-red-50 text-red-700 border border-red-200"
-                  )}
-                >
-                  {event.status === "open" ? "Inscripción Abierta" : event.status === "upcoming" ? "Próximamente" : "Cerrado"}
-                </span>
-                {event.status === "open" && (
-                  <Link
-                    href="#inscripcion"
-                    className="btn-primary text-xs"
-                  >
-                    Inscribirse
-                  </Link>
-                )}
-              </div>
-            </div>
-          ))}
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/eventos/campeonato-4t"
+            className="btn-outline flex items-center gap-2 text-xs"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />
+            </svg>
+            Ver Calendario Completo
+          </Link>
         </div>
       </div>
     </Section>
@@ -247,7 +199,6 @@ function EnrollmentSection() {
     <Section id="inscripcion" dark>
       <div className="container-xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left: Copy */}
           <div>
             <p className="section-label text-brand-red">Comienza Tu Trayectoria</p>
             <h2 className="font-display font-black text-heading-lg text-white mb-6">
@@ -275,7 +226,6 @@ function EnrollmentSection() {
             </ul>
           </div>
 
-          {/* Right: Form */}
           <div className="bg-white p-8">
             <h3 className="font-display font-bold text-xl uppercase text-brand-black mb-6">
               Formulario de Inscripción
@@ -284,7 +234,6 @@ function EnrollmentSection() {
               Complete el formulario y nos pondremos en contacto en 24 horas.
             </p>
 
-            {/* NOTE: Phase 2 — connect to Supabase + server action */}
             <div className="space-y-4">
               <div>
                 <label className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light block mb-1.5">
@@ -324,19 +273,6 @@ function EnrollmentSection() {
                   type="date"
                   className="w-full border border-brand-gray-border px-4 py-3 text-sm focus:outline-none focus:border-brand-red transition-colors text-brand-gray-mid"
                 />
-              </div>
-              <div>
-                <label className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light block mb-1.5">
-                  Categoría *
-                </label>
-                <select className="w-full border border-brand-gray-border px-4 py-3 text-sm focus:outline-none focus:border-brand-red transition-colors bg-white text-brand-gray-mid appearance-none">
-                  <option value="">Selecciona una categoría</option>
-                  {KARTING_CLASSES.map((cls) => (
-                    <option key={cls.id} value={cls.id}>
-                      {cls.name} ({cls.ageMin}–{cls.ageMax ?? "+"} años)
-                    </option>
-                  ))}
-                </select>
               </div>
               <div>
                 <label className="font-mono text-2xs uppercase tracking-widest text-brand-gray-light block mb-1.5">
@@ -454,7 +390,6 @@ export default function KartingPage() {
   return (
     <>
       <KartingHero />
-      <KartingClasses />
       <StandingsTable />
       <UpcomingRaces />
       <EnrollmentSection />
