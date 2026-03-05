@@ -11,7 +11,7 @@ export const SPONSORS: Sponsor[] = [
     },
     {
         name: "FIA",
-        logo: "/images/logos/partners/Member FIA.png",
+        logo: "/images/logos/partners/FIA BLANCO.png",
     },
     {
         name: "Direct English",
@@ -40,5 +40,9 @@ export const SPONSORS: Sponsor[] = [
     {
         name: "Todo Motor",
         logo: "/images/logos/sponsors/TM.png",
+    },
+    {
+        name: "El Salvador Travel",
+        logo: "/images/logos/sponsors/elsalvadortravel.png",
     },
 ];

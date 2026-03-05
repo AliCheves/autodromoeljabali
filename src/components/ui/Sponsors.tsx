@@ -13,54 +13,6 @@ interface SponsorsBandProps {
   label?: string;
 }
 
-function useMarqueeDuplication(
-  containerRef: React.RefObject<HTMLDivElement | null>,
-  trackRef: React.RefObject<HTMLDivElement | null>,
-  itemCount: number
-) {
-  const [copies, setCopies] = useState(2);
-
-  const measure = useCallback(() => {
-    const container = containerRef.current;
-    const track = trackRef.current;
-    if (!container || !track || itemCount === 0) return;
-
-    const containerWidth = container.offsetWidth;
-    const trackChildren = track.children;
-    let singleSetWidth = 0;
-
-    for (let i = 0; i < itemCount; i++) {
-      if (trackChildren[i]) {
-        singleSetWidth += (trackChildren[i] as HTMLElement).offsetWidth;
-      }
-    }
-
-    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-    singleSetWidth += gap * (itemCount - 1);
-
-    const needed = Math.max(2, Math.ceil((containerWidth * 2) / singleSetWidth));
-    setCopies(needed);
-  }, [containerRef, trackRef, itemCount]);
-
-  useEffect(() => {
-    measure();
-
-    let timeout: ReturnType<typeof setTimeout>;
-    const handleResize = () => {
-      clearTimeout(timeout);
-      timeout = setTimeout(measure, 150);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      clearTimeout(timeout);
-    };
-  }, [measure]);
-
-  return copies;
-}
-
 export function SponsorsBand({
   sponsors,
   className,
@@ -68,53 +20,65 @@ export function SponsorsBand({
   label,
 }: SponsorsBandProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const copies = useMarqueeDuplication(containerRef, trackRef, sponsors.length);
+  const setRef = useRef<HTMLDivElement>(null);
+  const [copies, setCopies] = useState(3);
 
-  const extendedSponsors: Sponsor[] = [];
-  for (let c = 0; c < copies; c++) {
-    for (const s of sponsors) {
-      extendedSponsors.push(s);
+  const measure = useCallback(() => {
+    const container = containerRef.current;
+    const set = setRef.current;
+    if (!container || !set || sponsors.length === 0) return;
+
+    const containerW = container.offsetWidth;
+    const setW = set.scrollWidth;
+
+    if (setW > 0) {
+      const needed = Math.ceil((containerW * 2) / setW) + 1;
+      setCopies(Math.max(3, needed));
     }
-  }
+  }, [sponsors.length]);
 
-  const renderSponsors = (keyPrefix: string) =>
-    extendedSponsors.map((sponsor, i) => {
-      const logo = (
-        <Image
-          src={sponsor.logo}
-          alt={sponsor.name}
-          width={160}
-          height={48}
-          className={clsx(
-            "h-10 sm:h-12 w-auto object-contain",
-            "grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 motion-reduce:transition-none",
-            "sm:grayscale sm:opacity-60 sm:hover:grayscale-0 sm:hover:opacity-100",
-            "max-sm:grayscale-0 max-sm:opacity-80"
-          )}
-        />
-      );
+  useEffect(() => {
+    measure();
+    const frame = requestAnimationFrame(measure);
+    window.addEventListener("resize", measure);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", measure);
+    };
+  }, [measure]);
 
-      return (
-        <div
-          key={`${keyPrefix}-${i}`}
-          className="flex-shrink-0 flex items-center"
-        >
-          {sponsor.url ? (
-            <Link
-              href={sponsor.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Visitar ${sponsor.name}`}
-            >
-              {logo}
-            </Link>
-          ) : (
-            logo
-          )}
-        </div>
-      );
-    });
+  const renderLogo = (sponsor: Sponsor, key: string) => {
+    const logo = (
+      <Image
+        src={sponsor.logo}
+        alt={sponsor.name}
+        width={160}
+        height={48}
+        className={clsx(
+          "h-10 sm:h-12 w-auto object-contain",
+          "grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 motion-reduce:transition-none",
+          "max-sm:grayscale-0 max-sm:opacity-80"
+        )}
+      />
+    );
+
+    return (
+      <div key={key} className="flex-shrink-0 flex items-center px-8">
+        {sponsor.url ? (
+          <Link
+            href={sponsor.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visitar ${sponsor.name}`}
+          >
+            {logo}
+          </Link>
+        ) : (
+          logo
+        )}
+      </div>
+    );
+  };
 
   return (
     <div
@@ -133,12 +97,21 @@ export function SponsorsBand({
       )}
       <div ref={containerRef} className="py-10 overflow-hidden">
         <div
-          ref={trackRef}
-          className="flex w-max gap-16 animate-marquee motion-reduce:animate-none will-change-transform"
-          style={{ transform: "translate3d(0, 0, 0)" }}
+          className="flex w-max animate-marquee will-change-transform motion-reduce:animate-none"
+          style={{
+            backfaceVisibility: "hidden",
+            perspective: 1000,
+          }}
         >
-          {renderSponsors("a")}
-          {renderSponsors("b")}
+          {Array.from({ length: copies }).map((_, copyIdx) => (
+            <div
+              key={copyIdx}
+              ref={copyIdx === 0 ? setRef : undefined}
+              className="flex flex-shrink-0"
+            >
+              {sponsors.map((s, i) => renderLogo(s, `${copyIdx}-${i}`))}
+            </div>
+          ))}
         </div>
       </div>
     </div>
