@@ -14,7 +14,7 @@ export const CAMPEONATO_4T: ChampionshipContent = {
         titleAccent: "4T",
         description:
             "Competición oficial de karting 4 tiempos. Seis rondas de alta intensidad con premios para los tres primeros lugares. Motores de carrera preparados en USA.",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/heros/hero campeonato 4t.jpg",
     },
     organizer: "ACES",
     rounds: [

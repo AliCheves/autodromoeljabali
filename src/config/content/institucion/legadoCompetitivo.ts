@@ -15,6 +15,7 @@ export const LEGADO_COMPETITIVO_CONTENT: LegadoCompetitivoContent = {
         titleAccent: "COMPETITIVO",
         description:
             "La historia y el compromiso institucional que definen al Autódromo Internacional El Jabalí y al Automóvil Club de El Salvador.",
+        image: "/images/temporarychangelater/heros/hero legado competitivo.jpg",
     },
 
     sections: [
@@ -30,19 +31,19 @@ export const LEGADO_COMPETITIVO_CONTENT: LegadoCompetitivoContent = {
 
     gallery: [
         {
-            src: "/images/institucion/legado-competitivo/legado-1.svg",
+            src: "/images/temporarychangelater/galeria/curve.jpg",
             alt: "Vista aérea del Autódromo Internacional El Jabalí",
         },
         {
-            src: "/images/institucion/legado-competitivo/legado-2.svg",
+            src: "/images/temporarychangelater/galeria/race start.jpg",
             alt: "Competición histórica en el circuito principal",
         },
         {
-            src: "/images/institucion/legado-competitivo/legado-3.svg",
+            src: "/images/temporarychangelater/galeria/Audi.jpg",
             alt: "Instalaciones y paddock del autódromo",
         },
         {
-            src: "/images/institucion/legado-competitivo/legado-4.svg",
+            src: "/images/temporarychangelater/galeria/flag pilot.jpg",
             alt: "Premiación oficial de campeonato regional",
         },
     ],

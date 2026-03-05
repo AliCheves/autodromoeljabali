@@ -35,8 +35,8 @@ export const VOLUNTARIADO_CONTENT: VoluntariadoContent = {
     ],
 
     images: {
-        banner: PLACEHOLDER,
-        program: PLACEHOLDER,
+        banner: "/images/temporarychangelater/heros/hero calendario eventos.jpg",
+        program: "/images/temporarychangelater/escuelas/hero nuestras escuelas.avif",
     },
 };
 

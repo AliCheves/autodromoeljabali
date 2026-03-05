@@ -12,6 +12,7 @@ export const ESTRUCTURA_PAGE_CONTENT: EstructuraPageContent = {
         titleAccent: "INSTITUCIONAL",
         description:
             "Organización deportiva respaldada por la Federación Internacional del Automóvil, comprometida con los más altos estándares de gobernanza, seguridad y excelencia competitiva.",
+        image: "/images/temporarychangelater/galeria/race start.jpg",
     },
     narrative: [
         {

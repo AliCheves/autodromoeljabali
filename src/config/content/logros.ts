@@ -11,7 +11,7 @@ export const ACHIEVEMENTS: Achievement[] = [
         description:
             "El Autódromo Internacional El Jabalí fue sede del Campeonato Centroamericano de Karting 2025, recibiendo a más de 120 pilotos de 8 países de la región. El evento marcó un hito en la historia del automovilismo centroamericano con estándares internacionales de organización y seguridad certificados por la FIA.",
         category: "Internacional",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/galeria/race start.jpg",
     },
     {
         id: "certificacion-fia-2024",
@@ -21,7 +21,7 @@ export const ACHIEVEMENTS: Achievement[] = [
         description:
             "El Autódromo Internacional El Jabalí se convirtió en el primer circuito de El Salvador en recibir la certificación FIA Grado 3, permitiendo la celebración de eventos internacionales oficiales. La certificación valida las instalaciones, medidas de seguridad y estándares operativos del circuito.",
         category: "Institucional",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/galeria/Cars going down.jpg",
     },
     {
         id: "record-asistencia-2024",
@@ -31,7 +31,7 @@ export const ACHIEVEMENTS: Achievement[] = [
         description:
             "El Gran Premio Nacional 2024 estableció un récord histórico de asistencia con más de 15,000 espectadores en un solo fin de semana de competición. El evento contó con transmisión en vivo, zona de entretenimiento familiar y exhibiciones de automovilismo clásico.",
         category: "Eventos",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/galeria/cars in race 2.jpg",
     },
     {
         id: "escuela-karting-2023",
@@ -41,7 +41,7 @@ export const ACHIEVEMENTS: Achievement[] = [
         description:
             "Se inauguró la Escuela Gratuita de Karting, un programa social que ha formado a más de 200 jóvenes pilotos desde su lanzamiento. El programa proporciona equipamiento, instrucción profesional y oportunidades de competición sin costo para familias de la comunidad.",
         category: "Social",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/galeria/cars in race 3.jpg",
     },
     {
         id: "expansion-circuito-2022",
@@ -51,7 +51,7 @@ export const ACHIEVEMENTS: Achievement[] = [
         description:
             "Finalización de la expansión del Circuito Norte, añadiendo un nuevo trazado de 1.2 km con 12 curvas técnicas. La expansión incluyó nueva infraestructura de boxes, torre de control y áreas de espectadores con capacidad para 5,000 personas.",
         category: "Infraestructura",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/galeria/curve.jpg",
     },
     {
         id: "primer-campeonato-2020",
@@ -61,7 +61,7 @@ export const ACHIEVEMENTS: Achievement[] = [
         description:
             "El Autódromo Internacional El Jabalí organizó el primer Campeonato Nacional de Karting oficial de El Salvador, sentando las bases para el desarrollo del automovilismo profesional en el país. El campeonato contó con 4 categorías y más de 60 pilotos inscritos.",
         category: "Competición",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/galeria/cars in race 4.jpg",
     },
 ];
 
@@ -72,7 +72,7 @@ export const PREMIADOS_FIA: PremiadoFia[] = [
         title: "Piloto del Año Centroamérica",
         year: "2025",
         discipline: "Karting",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/galeria/flag pilot.jpg",
     },
     {
         id: "sofia-martinez-fia",
@@ -80,7 +80,7 @@ export const PREMIADOS_FIA: PremiadoFia[] = [
         title: "Piloto Revelación FIA",
         year: "2024",
         discipline: "Karting",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/galeria/cars in race 5.jpg",
     },
     {
         id: "roberto-mendez-fia",
@@ -88,7 +88,7 @@ export const PREMIADOS_FIA: PremiadoFia[] = [
         title: "Mejor Director de Carrera",
         year: "2024",
         discipline: "Organización",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/galeria/Porsche.jpg",
     },
     {
         id: "ana-santos-fia",
@@ -96,6 +96,6 @@ export const PREMIADOS_FIA: PremiadoFia[] = [
         title: "Promesa del Automovilismo",
         year: "2023",
         discipline: "Karting",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/galeria/ferrari.jpg",
     },
 ];

@@ -14,7 +14,7 @@ export const AUTOMOVILISMO_2026: CalendarSeasonContent = {
         titleAccent: "2026",
         description:
             "Seis fechas de competición con los mejores pilotos y patrocinadores del automovilismo centroamericano.",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/heros/hero automovilismo 2026.jpg",
     },
     season: 2026,
     rounds: [

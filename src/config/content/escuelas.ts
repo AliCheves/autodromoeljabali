@@ -19,7 +19,7 @@ export const ESCUELAS: School[] = [
         ],
         ctaLabel: "Solicitar Inscripción",
         ctaHref: "#formulario",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/escuelas/Escuela karting.jpg",
     },
     {
         id: "licencia-deportiva",
@@ -37,7 +37,7 @@ export const ESCUELAS: School[] = [
         ],
         ctaLabel: "Más Información",
         ctaHref: "#formulario",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/escuelas/licencia deportivo.jpg",
     },
 ];
 

@@ -9,7 +9,7 @@ export const NOCHES_CONTENT: NochesContent = {
         titleAccent: "ACELERACIÓN",
         description:
             "La adrenalina del automovilismo bajo las luces. Cada viernes, el Autódromo Internacional El Jabalí abre sus puertas para una noche de velocidad, emoción y competición accesible para todos.",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/heros/hero noches de aceleracion.jpg",
     },
 
     description:
@@ -53,7 +53,7 @@ export const NOCHES_CONTENT: NochesContent = {
     schedule: "Todos los viernes de 7:00 PM a 11:00 PM",
 
     images: {
-        banner: PLACEHOLDER,
-        atmosphere: PLACEHOLDER,
+        banner: "/images/temporarychangelater/galeria/night race.png",
+        atmosphere: "/images/temporarychangelater/galeria/sunset.jpg",
     },
 };

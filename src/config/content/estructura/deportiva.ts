@@ -14,6 +14,7 @@ export const ESTRUCTURA_DEPORTIVA: LeadershipSectionContent = {
         titleAccent: "DEPORTIVA",
         description:
             "El liderazgo del Autódromo Internacional El Jabalí está conformado por profesionales con amplia experiencia en el automovilismo y la gestión deportiva a nivel internacional.",
+        image: "/images/temporarychangelater/galeria/Cars going down.jpg",
     },
     members: [
         {

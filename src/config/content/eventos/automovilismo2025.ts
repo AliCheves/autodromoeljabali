@@ -14,7 +14,7 @@ export const AUTOMOVILISMO_2025: CalendarSeasonContent = {
         titleAccent: "2025",
         description:
             "Seis fechas de competición con los mejores pilotos y patrocinadores del automovilismo centroamericano.",
-        image: PLACEHOLDER,
+        image: "/images/temporarychangelater/heros/hero legado competitivo.jpg",
     },
     season: 2025,
     rounds: [
