@@ -1,4 +1,5 @@
-import { RACE_EVENTS, type RaceEvent } from "@/config/events";
+import { RACE_EVENTS } from "@/config/events";
+import type { RaceEvent } from "@/types/content";
 
 const MONTHS_ES = [
     "ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO",
@@ -31,4 +32,28 @@ export function formatRaceDate(isoDate: string): { day: string; month: string; y
         month: MONTHS_ES[date.getMonth()],
         year: String(date.getFullYear()),
     };
+}
+
+/**
+ * Generates a Google Calendar "Add Event" URL suitable for any RaceEvent.
+ */
+export function buildGlobalGoogleCalendarUrl(event: RaceEvent): string {
+    const startHour = event.startHour ?? 8; // Default 8am if not specified
+    const endHour = event.endHour ?? startHour + 5; // Default 5 hour duration
+
+    // Input date is YYYY-MM-DD
+    const dateStr = event.date.split("-").join("");
+
+    const startH = String(startHour).padStart(2, "0");
+    const endH = String(endHour > 23 ? 23 : endHour).padStart(2, "0");
+
+    const params = new URLSearchParams({
+        action: "TEMPLATE",
+        text: event.title,
+        dates: `${dateStr}T${startH}0000/${dateStr}T${endH}0000`,
+        details: `Categoría: ${event.category}\\nHorario: ${event.time}\\n\\nMás información: autodromoeljabali.com${event.page}`,
+        location: event.location,
+    });
+
+    return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }

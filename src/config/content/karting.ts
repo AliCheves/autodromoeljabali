@@ -43,39 +43,6 @@ export const KARTING_CLASSES: KartingClass[] = [
     },
 ];
 
-export const RACE_EVENTS: RaceEvent[] = [
-    {
-        id: "1",
-        name: "Campeonato Sprint de Primavera",
-        date: "28 MAR 2026",
-        time: "09:00 AM",
-        circuit: "Autódromo El Jabalí - Norte",
-        category: "Todas las categorías",
-        status: "open",
-        distance: "18.3 km",
-    },
-    {
-        id: "2",
-        name: "Gran Premio de San Salvador",
-        date: "11 ABR 2026",
-        time: "10:00 AM",
-        circuit: "Circuito Internacional de Karting",
-        category: "Senior / Máster",
-        status: "open",
-        distance: "22.0 km",
-    },
-    {
-        id: "3",
-        name: "Copa Centroamericana",
-        date: "25 ABR 2026",
-        time: "11:00 AM",
-        circuit: "Autódromo El Jabalí - Sur",
-        category: "Junior / Senior",
-        status: "upcoming",
-        distance: "7.2 km",
-    },
-];
-
 export const STANDINGS: StandingsEntry[] = [
     { position: 1, driver: "Carlos Vega", team: "Team Red Bull Racing", points: 245, wins: 8, podiums: 12, trend: "stable" },
     { position: 2, driver: "Sofía Martínez", team: "Velocity Racing", points: 238, wins: 7, podiums: 11, trend: "up" },

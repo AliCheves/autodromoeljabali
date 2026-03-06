@@ -210,13 +210,14 @@ export interface KartingClass {
 
 export interface RaceEvent {
     id: string;
-    name: string;
-    date: string;
-    time: string;
-    circuit: string;
+    title: string;
     category: string;
-    status: "upcoming" | "open" | "closed" | "past";
-    distance: string;
+    date: string;
+    location: string;
+    time: string;
+    startHour?: number;
+    endHour?: number;
+    page: string;
 }
 
 export interface StandingsEntry {
