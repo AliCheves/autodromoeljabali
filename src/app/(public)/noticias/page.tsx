@@ -1,20 +1,36 @@
-import { Section, SectionHeader } from "@/components/ui/Section";
-import Container from "@/components/layout/Container";
 import type { Metadata } from "next";
+import { EventHero } from "@/components/sections/EventHero";
+import { NOTICIAS_CONTENT } from "@/config/content/noticias";
 
-export const metadata: Metadata = {
-    title: "Noticias",
-};
+export function generateMetadata(): Metadata {
+    const content = NOTICIAS_CONTENT;
+    return {
+        title: content.meta.title,
+        description: content.meta.description,
+        openGraph: {
+            title: content.meta.title,
+            description: content.meta.description,
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: content.meta.title,
+            description: content.meta.description,
+        },
+    };
+}
 
 export default function NoticiasPage() {
+    const content = NOTICIAS_CONTENT;
+
     return (
-        <Section>
-            <Container>
-                <SectionHeader title="Últimas" titleAccent="Noticias" subtitle="Manténgase informado sobre las novedades del automovilismo." />
-                <div className="min-h-40vh border border-brand-gray-border flex items-center justify-center text-brand-gray-mid bg-white">
-                    <p>Sección de noticias en construcción...</p>
-                </div>
-            </Container>
-        </Section>
+        <>
+            <EventHero
+                label={content.hero.label}
+                title={content.hero.title}
+                titleAccent={content.hero.titleAccent}
+                description={content.hero.description}
+                image={content.hero.image}
+            />
+        </>
     );
 }

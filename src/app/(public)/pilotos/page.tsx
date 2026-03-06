@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Section } from "@/components/ui/Section";
+import { EventHero } from "@/components/sections/EventHero";
 import { PILOTS } from "@/data";
 import { DisciplineChips } from "@/components/ui/DisciplineChips";
 
@@ -16,17 +17,13 @@ export const metadata: Metadata = {
 export default function PilotosPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-brand-black py-20 lg:py-28">
-        <div className="container-xl">
-          <p className="section-label text-brand-red">Temporada 2026</p>
-          <h1 className="font-display font-black text-white text-heading-xl leading-none">
-            NUESTROS
-            <br />
-            <span className="text-brand-red">PILOTOS</span>
-          </h1>
-        </div>
-      </section>
+      <EventHero
+        label="Temporada 2026"
+        title="NUESTROS"
+        titleAccent="PILOTOS"
+        description="Conoce a los pilotos de élite que compiten en el Autódromo Internacional El Jabalí. La máxima expresión del automovilismo centroamericano."
+        image="/images/galeria/gala-campeones.jpeg"
+      />
 
       {/* Grid */}
       <Section>

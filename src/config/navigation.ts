@@ -37,11 +37,6 @@ export const navigation: NavLink[] = [
     ],
   },
   { label: "Pilotos", href: "/pilotos" },
-  { label: "Contacto", href: "/contacto" },
-];
-
-export const secondaryNavigation: NavLink[] = [
   { label: "Noticias", href: "/noticias" },
-  { label: "Disciplinas", href: "/disciplinas" },
-  { label: "Calendario", href: "/calendario" },
+  { label: "Contacto", href: "/contacto" },
 ];

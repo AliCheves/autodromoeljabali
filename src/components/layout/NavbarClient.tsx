@@ -39,8 +39,8 @@ export function NavbarClient({ links }: NavbarClientProps) {
                 )}
                 style={{ height: "var(--nav-height)" }}
             >
-                <nav className="container-xl h-full flex items-center justify-between">
-                    <Link href="/" className="flex items-center gap-x-4" aria-label="Autódromo Internacional El Jabalí – Inicio">
+                <nav className="container-xl h-full flex items-center justify-between gap-4 lg:gap-6 xl:gap-8">
+                    <Link href="/" className="flex items-center gap-x-4 flex-shrink-0" aria-label="Autódromo Internacional El Jabalí – Inicio">
                         <BrandLogos />
                         <div className="hidden sm:flex flex-col leading-none">
                             <span className="font-display font-black text-sm uppercase tracking-widest text-brand-black">
@@ -52,7 +52,7 @@ export function NavbarClient({ links }: NavbarClientProps) {
                         </div>
                     </Link>
 
-                    <ul className="hidden lg:flex items-center gap-8">
+                    <ul className="hidden lg:flex items-center gap-4 xl:gap-8">
                         {links.map((link) =>
                             link.children && link.children.length > 0 ? (
                                 <NavDropdown key={link.href} item={link} />
@@ -119,14 +119,14 @@ export function NavbarClient({ links }: NavbarClientProps) {
 
             <div
                 className={clsx(
-                    "fixed inset-0 z-40 bg-white transition-all duration-300 lg:hidden",
+                    "fixed inset-0 z-40 bg-white transition-all duration-300 lg:hidden overflow-y-auto",
                     mobileOpen
                         ? "opacity-100 pointer-events-auto"
                         : "opacity-0 pointer-events-none"
                 )}
                 style={{ paddingTop: "var(--nav-height)" }}
             >
-                <nav className="container-xl py-10 flex flex-col gap-2">
+                <nav className="container-xl py-10 pb-24 flex flex-col gap-2 min-h-max">
                     {links.map((link, i) =>
                         link.children && link.children.length > 0 ? (
                             <MobileNavDropdown
