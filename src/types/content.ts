@@ -142,7 +142,6 @@ export interface ChampionshipContent {
     meta: PageMeta;
     hero: HeroContent;
     organizer: string;
-    rounds: EventDate[];
     prizes: EventPrize[];
     description: string;
     ctaLabel: string;

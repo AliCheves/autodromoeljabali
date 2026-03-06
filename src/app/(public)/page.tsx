@@ -5,7 +5,7 @@ import { FeaturedDriversSection } from "@/components/sections/FeaturedDriversSec
 import { SponsorsBand } from "@/components/ui/Sponsors";
 import { SponsorInquiryCTA } from "@/components/domain/SponsorInquiryCTA";
 import { HOME_HERO, KARTING_CHAMPIONS_IMAGE } from "@/config/content/home";
-import { SPONSORS } from "@/config/sponsors";
+import { SPONSORS } from "@/config/content/sponsors";
 
 export const metadata: Metadata = {
   title: "Inicio",

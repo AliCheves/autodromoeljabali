@@ -4,7 +4,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { clsx } from "clsx";
-import type { Sponsor } from "@/config/sponsors";
+import type { Sponsor } from "@/config/content/sponsors";
 
 interface SponsorsBandProps {
   sponsors: Sponsor[];

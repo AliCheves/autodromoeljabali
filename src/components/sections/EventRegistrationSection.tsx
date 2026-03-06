@@ -1,6 +1,6 @@
 import type { RegistrationInfo, PressConference } from "@/types/content";
 import { Section, SectionHeader } from "@/components/ui/Section";
-import { SPONSORS } from "@/config/sponsors";
+import { SPONSORS } from "@/config/content/sponsors";
 import { SponsorsBand } from "@/components/ui/Sponsors";
 import { OFFICIAL_CONTACT_INFO } from "@/config/content/contact";
 

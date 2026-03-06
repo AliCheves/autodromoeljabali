@@ -7,6 +7,8 @@ import { EventPrizeSection } from "@/components/sections/EventPrizeSection";
 import { EventRegistrationSection } from "@/components/sections/EventRegistrationSection";
 import { EventDocumentCTA } from "@/components/sections/EventDocumentCTA";
 import { Section } from "@/components/ui/Section";
+import { RACE_EVENTS } from "@/config/events";
+import { formatRaceDate } from "@/lib/events";
 
 export function generateMetadata(): Metadata {
     const content = CAMPEONATO_4T;
@@ -28,6 +30,17 @@ export function generateMetadata(): Metadata {
 
 export default function Campeonato4TPage() {
     const content = CAMPEONATO_4T;
+
+    const championshipRounds = RACE_EVENTS.filter((e) => e.category === "Karting 4T").map(
+        (e) => {
+            const formatted = formatRaceDate(e.date);
+            return {
+                day: formatted.day,
+                month: formatted.month,
+                year: parseInt(formatted.year, 10)
+            };
+        }
+    );
 
     return (
         <>
@@ -51,7 +64,7 @@ export default function Campeonato4TPage() {
             </Section>
 
             <EventCalendarGrid
-                rounds={content.rounds}
+                rounds={championshipRounds}
                 label="Rondas del Campeonato"
                 title="CALENDARIO"
                 titleAccent="2026"

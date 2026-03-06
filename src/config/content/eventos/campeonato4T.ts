@@ -17,14 +17,6 @@ export const CAMPEONATO_4T: ChampionshipContent = {
         image: "/images/temporarychangelater/heros/hero campeonato 4t.jpg",
     },
     organizer: "ACES",
-    rounds: [
-        { day: "08", month: "Marzo" },
-        { day: "26", month: "Abril" },
-        { day: "07", month: "Junio" },
-        { day: "05", month: "Julio" },
-        { day: "13", month: "Septiembre" },
-        { day: "25", month: "Octubre" },
-    ],
     prizes: [
         { place: "1er Lugar", amount: "$1,500.00" },
         { place: "2do Lugar", amount: "$1,000.00" },

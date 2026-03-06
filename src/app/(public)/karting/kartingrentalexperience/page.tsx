@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { KART_RENTAL_2026_CONTENT } from "@/config/content/karting/kartRental2026";
-import { SPONSORS } from "@/config/sponsors";
+import { SPONSORS } from "@/config/content/sponsors";
 import { EventHero } from "@/components/sections/EventHero";
 import { RentalAnnouncementSection } from "@/components/sections/RentalAnnouncementSection";
 import { RentalCalendarSection } from "@/components/sections/RentalCalendarSection";
