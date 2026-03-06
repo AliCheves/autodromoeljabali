@@ -52,7 +52,6 @@ export function AchievementsCarousel({ achievements }: AchievementsCarouselProps
                 <div
                     ref={scrollRef}
                     className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4"
-                    style={{ scrollbarWidth: "none" }}
                 >
                     {achievements.map((achievement, i) => (
                         <button

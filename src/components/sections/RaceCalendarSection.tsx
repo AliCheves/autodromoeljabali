@@ -25,11 +25,11 @@ export function RaceCalendarSection() {
   if (events.length === 0) return null;
 
   return (
-    <section className="bg-white py-20" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
+    <section className="bg-white py-20">
       <div className="container-xl">
         <div className="mb-8 text-center">
           <span className="uppercase tracking-widest text-brand-red text-sm font-mono mb-2 block">PRÓXIMOS EVENTOS</span>
-          <h2 className="font-black text-4xl md:text-5xl text-brand-black mb-2" style={{ fontFamily: "inherit" }}>
+          <h2 className="font-black text-4xl md:text-5xl text-brand-black mb-2">
             CALENDARIO
             <span className="block text-brand-red">DE CARRERAS</span>
           </h2>
@@ -43,33 +43,32 @@ export function RaceCalendarSection() {
                 key={event.id}
                 href={event.page}
                 className="group border border-brand-gray-border bg-white transition-colors duration-300 p-6 flex gap-6 items-center hover:bg-black min-w-0 overflow-hidden"
-                style={{ fontFamily: "inherit" }}
               >
                 <div className="min-w-20 text-center flex-shrink-0">
-                  <span className="font-black text-3xl md:text-4xl text-brand-red group-hover:text-white" style={{ fontFamily: "inherit" }}>
+                  <span className="font-black text-3xl md:text-4xl text-brand-red group-hover:text-white">
                     {formatted.day}
                   </span>
-                  <div className="text-brand-black group-hover:text-white text-sm font-bold mt-1" style={{ fontFamily: "inherit" }}>
+                  <div className="text-brand-black group-hover:text-white text-sm font-bold mt-1">
                     {formatted.month}
                   </div>
-                  <div className="text-brand-gray-mid group-hover:text-white text-xs mt-1" style={{ fontFamily: "inherit" }}>
+                  <div className="text-brand-gray-mid group-hover:text-white text-xs mt-1">
                     {formatted.year}
                   </div>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className="bg-brand-red text-white text-xs font-bold px-3 py-1 flex-shrink-0" style={{ fontFamily: "inherit" }}>
+                    <span className="bg-brand-red text-white text-xs font-bold px-3 py-1 flex-shrink-0">
                       {event.category}
                     </span>
-                    <span className="font-black text-lg md:text-xl text-brand-black group-hover:text-white truncate" style={{ fontFamily: "inherit" }}>
+                    <span className="font-black text-lg md:text-xl text-brand-black group-hover:text-white truncate">
                       {event.title}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2 text-brand-gray-mid group-hover:text-white text-sm mb-1 truncate" style={{ fontFamily: "inherit" }}>
+                  <div className="flex items-center gap-2 text-brand-gray-mid group-hover:text-white text-sm mb-1 truncate">
                     <LocationIcon />
                     <span className="truncate">{event.location}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-brand-gray-mid group-hover:text-white text-sm" style={{ fontFamily: "inherit" }}>
+                  <div className="flex items-center gap-2 text-brand-gray-mid group-hover:text-white text-sm">
                     <TimeIcon />
                     {event.time}
                   </div>
@@ -83,7 +82,6 @@ export function RaceCalendarSection() {
           <Link
             href="/eventos/campeonato-4t"
             className="flex items-center justify-center gap-3 px-8 py-3 bg-black text-white font-bold text-base sm:text-lg border border-black hover:bg-white hover:text-black transition-all w-full sm:w-auto text-center"
-            style={{ fontFamily: "inherit" }}
           >
             <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
               <rect x="3" y="4" width="18" height="18" rx="2" />

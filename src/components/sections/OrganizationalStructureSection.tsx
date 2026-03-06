@@ -35,12 +35,11 @@ export function OrganizationalStructureSection() {
   return (
     <section
       className="bg-brand-gray-bg py-20"
-      style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
     >
       <div className="container-xl">
         <div className="mb-8 text-center">
           <span className="uppercase tracking-widest text-brand-red text-sm font-mono mb-2 block">ESTRUCTURA ORGANIZACIONAL</span>
-          <h2 className="font-black text-4xl md:text-5xl text-brand-black mb-2" style={{ fontFamily: "inherit" }}>
+          <h2 className="font-black text-4xl md:text-5xl text-brand-black mb-2">
             DISEÑADOS PARA LA
             <span className="block text-brand-red">EXCELENCIA</span>
           </h2>
@@ -50,15 +49,14 @@ export function OrganizationalStructureSection() {
             <div
               key={idx}
               className="group bg-white transition-colors duration-300 shadow-sm rounded-none p-8 flex flex-col items-start h-full cursor-pointer border border-transparent hover:bg-black hover:border-black"
-              style={{ fontFamily: "inherit" }}
             >
               <div className="mb-4 group-hover:text-white">
                 {card.icon}
               </div>
-              <h3 className="font-black text-xl mb-2 group-hover:text-white" style={{ fontFamily: "inherit" }}>
+              <h3 className="font-black text-xl mb-2 group-hover:text-white">
                 {card.title}
               </h3>
-              <p className="text-brand-gray-mid group-hover:text-white text-base" style={{ fontFamily: "inherit" }}>
+              <p className="text-brand-gray-mid group-hover:text-white text-base">
                 {card.desc}
               </p>
             </div>

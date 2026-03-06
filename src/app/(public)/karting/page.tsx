@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 function KartingHero() {
   return (
-    <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-brand-black">
+    <section className="relative min-h-70vh flex items-center overflow-hidden bg-brand-black">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-brand-red/15 to-transparent" />
         <div className="absolute inset-0 opacity-5" style={{

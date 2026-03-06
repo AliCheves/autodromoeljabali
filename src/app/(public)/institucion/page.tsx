@@ -126,7 +126,7 @@ export default function InstitucionPage() {
                         </p>
                         <Link
                             href={content.featured.ctaHref}
-                            className="inline-flex items-center gap-2 mt-8 px-8 py-3 bg-brand-red text-white font-bold text-base hover:bg-brand-red/80 transition-all"
+                            className="btn-cta mt-8"
                         >
                             {content.featured.ctaLabel}
                         </Link>
@@ -168,7 +168,7 @@ export default function InstitucionPage() {
                     </p>
                     <Link
                         href={content.cta.buttonHref}
-                        className="inline-flex items-center gap-2 px-10 py-4 bg-brand-red text-white font-bold text-lg hover:bg-brand-red/80 transition-all"
+                        className="btn-cta text-lg"
                     >
                         {content.cta.buttonLabel}
                     </Link>

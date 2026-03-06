@@ -45,6 +45,14 @@ const config: Config = {
         "8xl": "88rem",
         "9xl": "96rem",
       },
+      minHeight: {
+        "40vh": "40vh",
+        "70vh": "70vh",
+        "90vh": "90vh",
+      },
+      maxHeight: {
+        "80vh": "80vh",
+      },
       letterSpacing: {
         "widest-xl": "0.2em",
         "widest-2xl": "0.3em",

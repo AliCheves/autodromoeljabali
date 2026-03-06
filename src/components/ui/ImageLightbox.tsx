@@ -72,13 +72,13 @@ export function ImageLightbox({ isOpen, onClose, src, alt }: ImageLightboxProps)
                     </svg>
                 </button>
 
-                <div className="relative w-full max-h-[80vh]">
+                <div className="relative w-full max-h-80vh">
                     <Image
                         src={src}
                         alt={alt}
                         width={1200}
                         height={800}
-                        className="w-full h-auto max-h-[80vh] object-contain"
+                        className="w-full h-auto max-h-80vh object-contain"
                         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 80vw, 1200px"
                     />
                 </div>

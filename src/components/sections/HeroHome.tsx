@@ -10,7 +10,7 @@ export function HeroHome({ content }: HeroHomeProps) {
   const { label, title, titleAccent, description, image } = content;
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black">
+    <section className="relative min-h-90vh flex items-center overflow-hidden bg-black">
 
       {image && (
         <Image
@@ -60,7 +60,7 @@ export function HeroHome({ content }: HeroHomeProps) {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-2">
             <Link
               href="/estructura"
-              className="px-8 py-3 bg-brand-red text-white font-bold text-lg rounded-none shadow-none hover:bg-brand-red/80 transition-all text-center"
+              className="btn-cta text-lg rounded-none shadow-none text-center"
             >
               DESCUBRIR MÁS
             </Link>

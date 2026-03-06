@@ -23,22 +23,18 @@ export function InstitutionSection({ kartingImage }: InstitutionSectionProps) {
         <div className="container-xl py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             <div>
-              <h1
-                className="font-black text-5xl sm:text-6xl lg:text-7xl leading-none mb-2 text-brand-black"
-                style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
-              >
+              <div className="font-black text-4xl sm:text-5xl md:text-6xl text-brand-black leading-none tracking-tight">
                 {LEGADO_SECTION.title}
-                <span className="block text-brand-red" style={{ fontFamily: "inherit" }}>{LEGADO_SECTION.titleAccent}</span>
-              </h1>
-              <div className="space-y-6 text-brand-gray-mid text-lg leading-relaxed mt-6" style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
+                <span className="block text-brand-red">{LEGADO_SECTION.titleAccent}</span>
+              </div>
+              <div className="space-y-6 text-brand-gray-mid text-lg leading-relaxed mt-6">
                 {LEGADO_SECTION.paragraphs.map((text, i) => (
                   <p key={i}>{text}</p>
                 ))}
               </div>
               <Link
-                href={LEGADO_SECTION.ctaHref}
-                className="inline-flex items-center gap-2 mt-8 px-8 py-3 bg-brand-red text-white font-bold text-base sm:text-lg hover:bg-brand-red/80 transition-all"
-                style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+                href="/institucion/legado"
+                className="btn-cta mt-8"
               >
                 {LEGADO_SECTION.ctaLabel}
               </Link>
@@ -51,12 +47,11 @@ export function InstitutionSection({ kartingImage }: InstitutionSectionProps) {
                   <div
                     key={i}
                     className={`${colors.bg} text-white p-6 sm:p-10 flex flex-col items-center justify-center`}
-                    style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
                   >
-                    <span className={`font-black text-5xl ${colors.text} mb-2`} style={{ fontFamily: "inherit" }}>
+                    <span className={`font-black text-5xl ${colors.text} mb-2`}>
                       {stat.value}
                     </span>
-                    <span className="text-base mt-2 text-center uppercase" style={{ fontFamily: "inherit" }}>
+                    <span className="text-base mt-2 text-center uppercase">
                       {stat.label}
                     </span>
                   </div>
