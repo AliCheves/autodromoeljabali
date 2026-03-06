@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import type { Achievement } from "@/config/logros";
+import type { Achievement } from "@/types/content";
 import { AchievementModal } from "@/components/domain/AchievementModal";
 
 interface AchievementsCarouselProps {

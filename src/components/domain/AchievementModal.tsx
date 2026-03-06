@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Achievement } from "@/config/logros";
+import type { Achievement } from "@/types/content";
 
 interface AchievementModalProps {
     achievement: Achievement | null;
