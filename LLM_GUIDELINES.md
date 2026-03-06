@@ -107,10 +107,12 @@ const content = PAGE_CONTENT
 ## Content Architecture Rules (Strict)
 
 * All page content must originate from `config/content/`.
+* Application/domain configuration (navigation, events, branding) lives at `config/`.
+* Static editorial copy lives strictly inside `config/content/`.
 * No static arrays inside JSX.
 * No hardcoded text inside section components.
-* Config files must export pure serializable objects only.
-* No formatting or transformation logic inside config files.
+* Config files must export pure serializable data only.
+* No formatting, transformation logic, or utility imports inside config files. Derived state (e.g., mapping dates) must happen dynamically at the consumption layer.
 * No JSX inside config files.
 * All content must be CMS-ready and backend-replaceable.
 
@@ -167,11 +169,12 @@ Mobile-first design is mandatory.
 * Arbitrary pixel utilities (e.g., `text-[64px]`, `min-w-[70px]`) are forbidden.
 * Inline style attributes are strictly prohibited.
 * Aspect ratios must use Tailwind utilities.
-* Reusable spacing values must be added via Tailwind theme extension.
+* Reusable spacing or view height values (e.g., `90vh`) must be added via Tailwind theme extension.
+* Extract repeating UI styling patterns into reusable global CSS utilities (e.g., `.btn-cta`, `.scrollbar-hide`) in the main active global stylesheet.
 * No magic numbers.
 * No duplicated utility chains across components.
 
-If a value is reused → define it in theme.
+If a value is reused → define it in theme or utilities.
 
 ---
 
@@ -193,6 +196,16 @@ If a value is reused → define it in theme.
 * Pages must remain convertible to async.
 * No coupling UI to backend structure.
 * Supabase logic must remain isolated.
+
+---
+
+## Server Actions & Integrations (Emails, APIs)
+
+* Server actions must focus purely on validation, honeypot protection, and FormData extraction.
+* Third-party transport logic (e.g., Resend clients, external APIs) must be strongly centralized in shared utilities within `lib/server/`.
+* Do not duplicate SDK instance initializations across multiple server actions.
+* Email templates must use a centralized shared HTML layout wrapper to enforce strict branding consistency.
+* The email utility transport layer must remain decoupled from specific form concerns.
 
 ---
 
