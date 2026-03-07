@@ -84,7 +84,7 @@ export function NavbarClient({ links }: NavbarClientProps) {
                     </ul>
 
                     <div className="hidden lg:flex items-center gap-4">
-                        <Link href="/karting#inscripcion" className="btn-primary text-xs">
+                        <Link href="/noticias/newsletter" className="btn-primary text-xs">
                             Inscríbete
                         </Link>
                     </div>
@@ -154,7 +154,7 @@ export function NavbarClient({ links }: NavbarClientProps) {
                         )
                     )}
                     <Link
-                        href="/karting#inscripcion"
+                        href="/noticias/newsletter"
                         className="btn-primary mt-4 self-start"
                     >
                         Inscríbete ahora
