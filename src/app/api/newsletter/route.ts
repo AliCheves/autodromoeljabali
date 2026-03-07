@@ -1,11 +1,11 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID;
-
 export async function POST(request: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID;
+
     if (!AUDIENCE_ID) {
       throw new Error("Missing RESEND_AUDIENCE_ID environment variable");
     }
